@@ -1,0 +1,121 @@
+@mixin defineColorHSL($color, $hue, $saturation, $lightness) {
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})") !important;
+  #{$color}-h: #{$hue};
+  #{$color}-s: #{$saturation};
+  #{$color}-l: #{$lightness};
+}
+
+// return css color variable with different opacity value
+@function alpha($color, $opacity) {
+  $color: str-replace($color, "var(");
+  $color: str-replace($color, ")");
+  $color-h: var(#{$color + "-h"});
+  $color-s: var(#{$color + "-s"});
+  $color-l: var(#{$color + "-l"});
+  @return hsla($color-h, $color-s, $color-l, $opacity);
+}
+
+// replace substring with another string
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+  @return $string;
+}
+
+@function lightness($color, $lightnessMultiplier) {
+  $color: str-replace($color, "var(");
+  $color: str-replace($color, ")");
+  $color-h: var(#{$color + "-h"});
+  $color-s: var(#{$color + "-s"});
+  $color-l: var(#{$color + "-l"});
+  @return hsl($color-h, $color-s, calc(#{$color-l} * #{$lightnessMultiplier}));
+}
+
+@mixin full-fit {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+
+  @content;
+}
+
+// avoid using this
+@mixin align-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @content;
+}
+
+// avoid using this
+@mixin align-center-auto {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  @content;
+}
+
+@mixin align-center-grid {
+  display: grid;
+  place-items: center;
+
+  @content;
+}
+
+@mixin align-center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @content;
+}
+
+@mixin grid-columns($min: 300px, $gap: 1rem, $columns: auto-fill) {
+  display: grid;
+  grid-template-columns: repeat($columns, minmax($min, 1fr));
+  grid-gap: $gap;
+  gap: $gap;
+
+  @content;
+}
+
+@mixin size($w, $h: $w) {
+  width: $w;
+  @if $h {
+    height: $h;
+  } @else {
+    height: $w;
+  }
+}
+
+@mixin clamp($property, $min, $val, $max, $isImportant: "") {
+  min-#{$property}: $min #{$isImportant};
+  #{$property}: $val #{$isImportant};
+  max-#{$property}: $max #{$isImportant};
+  #{$property}: clamp($min, $val, $max) #{$isImportant};
+}
+
+@mixin line-clamp($lines: 1, $orientation: vertical, $isImportant: "") {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: $orientation;
+  overflow: hidden;
+}
+
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
