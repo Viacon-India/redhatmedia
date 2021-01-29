@@ -15,7 +15,7 @@ get_header();
         $term_list = wp_get_post_terms( $postid, 'news-cat', array( 'fields' => 'all' ) ); ?>    
 
 
-    <article class="-section">
+    <article class="-section pt-4">
         <div class="container">
             <div class="row">
                 <div class="col-sm-9">

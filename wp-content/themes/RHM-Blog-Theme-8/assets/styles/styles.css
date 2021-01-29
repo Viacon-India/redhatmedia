@@ -23262,7 +23262,7 @@ header form button i {
 
 .aside-bar .custom-widget ul li img {
   float: left;
-  width: 4rem;
+  max-width: 4rem;
   height: 4rem;
   -o-object-fit: cover;
      object-fit: cover;
