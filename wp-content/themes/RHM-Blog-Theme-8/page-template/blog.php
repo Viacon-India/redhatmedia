@@ -34,11 +34,11 @@ $myvals = get_post_meta($current_page_ID);
           <div class="col-md-8">
             <div class="header-title-warper">
               <h1 class="title">
-                <?php echo $rhm_banner_heading; ?>
+                <?php if(!empty($rhm_banner_heading)) { echo $rhm_banner_heading; } ?>
               </h1>
             </div>
             <div class="header-text-warper">            
-                <?php echo $rhm_banner_content; ?>
+                <?php if(!empty($rhm_banner_content)) { echo $rhm_banner_content; } ?>
                 <?php get_search_form(); ?>
             </div>
           </div>          

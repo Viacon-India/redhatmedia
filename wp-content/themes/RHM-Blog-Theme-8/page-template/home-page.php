@@ -20,15 +20,15 @@ foreach($myvals as $key=>$val) {
         <div class="col-md-8">
           <div class="header-title-warper">
             <h1 class="title">
-              <?php echo $rhm_frontpage_banner_heading; ?>
+            <?php if(!empty($rhm_frontpage_banner_heading)) { echo $rhm_frontpage_banner_heading; } ?>
             </h1>
           </div>
           <div class="header-text-warper">            
-            <?php echo $rhm_frontpage_banner_cont; ?>
+            <?php if(!empty($rhm_frontpage_banner_cont)) { echo $rhm_frontpage_banner_cont; } ?>
           </div>
           <div class="header-link-warper">
-            <a class="link" href="<?php echo $rhm_frontpage_btn_link; ?>">
-            <?php echo $rhm_frontpage_btn_text; ?>
+            <a class="link" href="<?php if(!empty($rhm_frontpage_btn_link)) { echo $rhm_frontpage_btn_link; } ?>">
+            <?php if(!empty($rhm_frontpage_btn_text)) { echo $rhm_frontpage_btn_text; } ?>
             </a>
           </div>
         </div>
@@ -49,7 +49,7 @@ foreach($myvals as $key=>$val) {
           </div>
           <div class="col-md-9">
             <div class="about-text-wrapper">
-              <?php echo $rhm_frontpage_about_us; ?>
+              <?php if(!empty($rhm_frontpage_about_us)) { echo $rhm_frontpage_about_us; } ?>
             </div>
           </div>
         </div>
@@ -146,7 +146,7 @@ foreach($myvals as $key=>$val) {
             </div>
             <div class="col-md-9">
               <div class="text-wrapper">                
-              <?php echo $rhm_frontpage_service_content; ?>
+              <?php if(!empty($rhm_frontpage_service_content)) { echo $rhm_frontpage_service_content; } ?>
               </div>
             </div>
           </div>
@@ -194,7 +194,7 @@ foreach($myvals as $key=>$val) {
             </div>
             <div class="col-md-9">
               <div class="text-wrappers">                
-                <?php echo $rhm_frontpage_blog_content; ?>                
+              <?php if(!empty($rhm_frontpage_blog_content)) { echo $rhm_frontpage_blog_content; } ?>                
               </div>
             </div>
           </div>
