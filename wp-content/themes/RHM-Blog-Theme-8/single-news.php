@@ -12,7 +12,7 @@ get_header();
         
         $author_id = get_the_author_meta('ID');
         $date = get_the_date();
-        $term_list = wp_get_post_terms( $postid, 'cat', array( 'fields' => 'all' ) ); ?>    
+        $term_list = wp_get_post_terms( $postid, 'news-cat', array( 'fields' => 'all' ) ); ?>    
 
 
     <article class="-section">
@@ -72,7 +72,7 @@ endif;
                 'post_type' => 'news',
                 'tax_query' => array(
                     array(
-                      'taxonomy' => 'cat',
+                      'taxonomy' => 'news-cat',
                       'field' => 'id',
                       'terms' => $term_list[0]->term_id,
                       'operator'=> 'IN' 

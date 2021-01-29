@@ -50,31 +50,47 @@
         )); ?>
         <!-- end nav menu link  -->
         <ul class="social navbar-nav ml-md-auto">
+          <?php $abn_fb_link = abn_option('abn_fb_link');
+          $abn_ig_link = abn_option('abn_ig_link');
+          $abn_tweet_link = abn_option('abn_tweet_link');
+          $abn_pinterest_link = abn_option('abn_pinterest_link');
+          $abn_linkedin_link = abn_option('abn_linkedin_link'); ?>
+
+          <?php if(!empty($abn_fb_link)) { ?>
           <li class="nav-item">
-            <a class="nav-link p-2" href="<?php echo abn_option('abn_fb_link'); ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="nav-link p-2" href="<?php echo $abn_fb_link; ?>" target="_blank" rel="noopener" aria-label="">
               <i class="fa fa-facebook" aria-hidden="true"></i>
             </a>
           </li>
+          <?php }
+          if(!empty($abn_ig_link)) { ?>
           <li class="nav-item">
-            <a class="nav-link p-2" href="<?php echo abn_option('abn_ig_link'); ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="nav-link p-2" href="<?php echo $abn_ig_link; ?>" target="_blank" rel="noopener" aria-label="">
               <i class="fa fa-instagram" aria-hidden="true"></i>
             </a>
           </li>
+          <?php }
+          if(!empty($abn_tweet_link)) { ?>
           <li class="nav-item">
-            <a class="nav-link p-2" href="<?php echo abn_option('abn_tweet_link'); ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="nav-link p-2" href="<?php echo $abn_tweet_link; ?>" target="_blank" rel="noopener" aria-label="">
               <i class="fa fa-twitter" aria-hidden="true"></i>
             </a>
           </li>
+          <?php }
+          if(!empty($abn_pinterest_link)) { ?>
           <li class="nav-item">
-            <a class="nav-link p-2" href="<?php echo abn_option('abn_pinterest_link'); ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="nav-link p-2" href="<?php echo $abn_pinterest_link; ?>" target="_blank" rel="noopener" aria-label="">
               <i class="fa fa-pinterest" aria-hidden="true"></i>
             </a>
           </li>
+          <?php }
+          if(!empty($abn_linkedin_link)) { ?>
           <li class="nav-item">
-            <a class="nav-link p-2" href="<?php echo abn_option('abn_linkedin_link'); ?>" target="_blank" rel="noopener" aria-label="">
+            <a class="nav-link p-2" href="<?php echo $abn_linkedin_link; ?>" target="_blank" rel="noopener" aria-label="">
               <i class="fa fa-linkedin" aria-hidden="true"></i>
             </a>
           </li>
+          <?php } ?>
         </ul>
         <!--End nav social link  -->
 

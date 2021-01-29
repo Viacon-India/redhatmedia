@@ -5,12 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-if ( ! class_exists( 'WP_List_Table' ) ) {
-	require_once ABSPATH . 'wp-admin/includes/class-wp-list-table.php';
-}
-
-class ES_Reports_Table extends WP_List_Table {
+class ES_Reports_Table extends ES_List_Table {
 
 	public static $instance;
 
@@ -36,10 +31,10 @@ class ES_Reports_Table extends WP_List_Table {
 			$campaign_type = ES()->campaigns_db->get_campaign_type_by_id( $campaign_id );
 		}
 
-		$campaign_types = array('sequence', 'sequence_message');
+		$campaign_types = array( 'sequence', 'sequence_message' );
 		//Only if it is sequence then control will transfer to Sequence Reports class.
 		if ( ! empty ( $campaign_type ) && in_array( $campaign_type, $campaign_types ) ) {
-			if ( ES()->is_pro() ) { 
+			if ( ES()->is_pro() ) {
 				$reports = ES_Pro_Sequence_Reports::get_instance();
 				$reports->es_sequence_reports_callback();
 			} else {
@@ -66,7 +61,7 @@ class ES_Reports_Table extends WP_List_Table {
 								/* translators: %s: Cron url */
 								$content = sprintf( __( "<a href='%s' class='px-3 py-2 ig-es-imp-button'>Send Queued Emails Now</a>", 'email-subscribers' ), $cron_url );
 							} else {
-								$content  = sprintf( __( "<span class='ig-es-send-queue-emails px-3 button-disabled'>Send Queued Emails Now</span>", 'email-subscribers' ) );
+								$content = sprintf( __( "<span class='ig-es-send-queue-emails px-3 button-disabled'>Send Queued Emails Now</span>", 'email-subscribers' ) );
 								$content .= sprintf( __( "<br /><span class='es-helper pl-6'>No emails found in queue</span>", 'email-subscribers' ) );
 							}
 							?>
@@ -77,13 +72,15 @@ class ES_Reports_Table extends WP_List_Table {
 							</div>
 						</div>
 					</header>
-					<div><hr class="wp-header-end"></div>
+					<div>
+						<hr class="wp-header-end">
+					</div>
 					<div id="poststuff" class="es-items-lists">
 						<div id="post-body" class="metabox-holder column-1">
 							<div id="post-body-content">
 								<div class="meta-box-sortables ui-sortable">
 									<form method="get">
-										<input type="hidden" name="page" value="es_reports" />
+										<input type="hidden" name="page" value="es_reports"/>
 										<?php
 										// Display search field and other available filter fields.
 										$this->prepare_items();
@@ -101,7 +98,7 @@ class ES_Reports_Table extends WP_List_Table {
 						<br class="clear">
 					</div>
 				</div>
-				<?php 
+				<?php
 			}
 		}
 	}
@@ -127,7 +124,6 @@ class ES_Reports_Table extends WP_List_Table {
 			<th width="24%" class="py-3 pl-4 es_reports_table_header"><?php esc_html_e( 'Email', 'email-subscribers' ); ?></th>
 			<th width="12%" class=" py-3 pl-6 es_reports_table_header"><?php esc_html_e( 'Status', 'email-subscribers' ); ?></th>
 			<th width="22%" class="py-3 pl-2 es_reports_table_header"><?php esc_html_e( 'Sent Date', 'email-subscribers' ); ?></th>
-			<th width="17%" class="py-3 pl-6 es_reports_table_header"><?php esc_html_e( 'Viewed Status', 'email-subscribers' ); ?></th>
 			<th width="22%" class=" py-3 pl-6 es_reports_table_header"><?php esc_html_e( 'Viewed Date', 'email-subscribers' ); ?></th>
 		</tr>
 
@@ -159,7 +155,7 @@ class ES_Reports_Table extends WP_List_Table {
 			</div>
 
 			<div class="mt-2 mb-2 block">
-				<span class="pt-3 pb-4 leading-5 tracking-wide text-gray-600"><?php echo esc_html('Viewed ' . $email_viewed_count . '/' . $total_email_sent ); ?>
+				<span class="pt-3 pb-4 leading-5 tracking-wide text-gray-600"><?php echo esc_html( 'Viewed ' . $email_viewed_count . '/' . $total_email_sent ); ?>
 				</span>
 			</div>
 
@@ -202,20 +198,69 @@ class ES_Reports_Table extends WP_List_Table {
 			$opened    = ! empty( $email['opened'] ) ? $email['opened'] : ( ! empty( $email['es_deliver_status'] ) && 'Viewed' === $email['es_deliver_status'] ? 1 : 0 );
 			$opened_at = ! empty( $email['opened_at'] ) ? $email['opened_at'] : ( ! empty( $email['es_deliver_viewdate'] ) ? $email['es_deliver_viewdate'] : '' );
 
+			if ( 'Sent' === $status ) {
+				$status = ( $opened ) ? 'Opened' : $status;
+			}
+
 			?>
 
 			<tr>
 				<td class="pl-6 py-2 border-b border-gray-200 text-sm leading-5 text-gray-500"><?php echo esc_html( $i ); ?></td>
 				<td class="pl-4 py-2 border-b border-gray-200 text-sm leading-5 text-gray-600"><?php echo esc_html( $email_id ); ?></td>
-				<td class="pl-6 pr-2 py-2 border-b border-gray-200 text-sm leading-5 text-gray-500"><span style="color:#03a025;font-weight:bold;"><?php echo esc_html( $status ); ?></span></td>
+				<td class="pl-6 pr-2 py-2 border-b border-gray-200 text-sm leading-5 text-gray-500">
+					<span style="color:#03a025;font-weight:bold;">
+						<?php 
+						switch ( $status ) {
+							case 'Sent': 
+								?>
+								<svg class="h-6 w-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+									<title><?php echo esc_html__( 'Sent', 'email-subscribers' ); ?></title>
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+								</svg>
+								<?php
+								break;
+							case 'In Queue': 
+								?>
+								<svg class=" h-6 w-6 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+								<title><?php echo esc_html__( 'In Queue', 'email-subscribers' ); ?></title>
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+							</svg>
+								<?php
+								break;
+							case 'Sending': 
+								?>
+								<svg class=" h-6 w-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+								<title><?php echo esc_html__( 'Sending', 'email-subscribers' ); ?></title>
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"/>
+							</svg>
+								<?php
+								break;
+							case 'Opened': 
+								?>
+								<svg xmlns="http://www.w3.org/2000/svg" class="" width="28" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+									<title><?php echo esc_html__( 'Opened', 'email-subscribers' ); ?></title>
+									  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+									  <path d="M7 12l5 5l10 -10" />
+									  <path d="M2 12l5 5m5 -5l5 -5" />
+								</svg>
+								<?php
+								break;
+							case '': 
+								?>
+								<i class="dashicons dashicons-es dashicons-minus"/>
+								<?php
+								break;
+							default: 
+								echo esc_html( $status );
+								break;
+
+						}
+						?>
+					</span>
+				</td>
+
 				<td class="pl-2 pr-2 py-2 border-b border-gray-200 text-sm leading-5 text-gray-500"><?php echo wp_kses_post( ig_es_format_date_time( $sent_at ) ); ?></td>
-				<td class="pl-6 pr-2 py-2 border-b border-gray-200 text-sm leading-5 text-gray-600"><span>
-				<?php 
-				/* translators: 1: Italic tag 2: Class attribute */
-				echo ! empty( $opened ) && 1 == $opened ? esc_html__( 'Viewed', 'email-subscribers' ) : wp_kses_post( '<i title="Not yet viewed" class="dashicons dashicons-es dashicons-minus"/>' ); 
-				?>
-				</span></td>
-				<td class="pl-6 pr-1 py-2 border-b border-gray-200 text-sm leading-5 text-gray-500"><?php echo wp_kses_post(ig_es_format_date_time( $opened_at ) ); ?></td>
+				<td class="pl-6 pr-1 py-2 border-b border-gray-200 text-sm leading-5 text-gray-500"><?php echo wp_kses_post( ig_es_format_date_time( $opened_at ) ); ?></td>
 			</tr>
 
 			<?php
@@ -233,7 +278,7 @@ class ES_Reports_Table extends WP_List_Table {
 	/**
 	 * Render a column when no column specific method exist.
 	 *
-	 * @param array  $item
+	 * @param array $item
 	 * @param string $column_name
 	 *
 	 * @return mixed
@@ -343,7 +388,7 @@ class ES_Reports_Table extends WP_List_Table {
 
 		$campaign_hash = $item['hash'];
 
-		$total_emails_sent 		 = $item['count'];
+		$total_emails_sent       = $item['count'];
 		$total_emails_to_be_sent = $item['count'];
 		// if ( ! empty( $campaign_hash ) ) {
 		// $total_emails_sent = ES_DB_Sending_Queue::get_total_emails_sent_by_hash( $campaign_hash );
@@ -413,6 +458,11 @@ class ES_Reports_Table extends WP_List_Table {
 		/** Process bulk action */
 		$this->process_bulk_action();
 
+		// Search box
+		$search = ig_es_get_request_data( 's' );
+
+		$this->search_box( $search, 'reports-search-input' );
+
 		$per_page     = $this->get_items_per_page( 'reports_per_page', 20 );
 		$current_page = $this->get_pagenum();
 		$total_items  = $this->get_notifications( 0, 0, true );
@@ -428,11 +478,14 @@ class ES_Reports_Table extends WP_List_Table {
 	}
 
 	public function get_notifications( $per_page = 5, $page_number = 1, $do_count_only = false ) {
-		global $wpbd;
+		global $wpdb, $wpbd;
 
-		$order_by    = sanitize_sql_orderby( ig_es_get_request_data( 'orderby' ) );
-		$order       = ig_es_get_request_data( 'order' );
-		$campaign_id = ig_es_get_request_data( 'campaign_id' );
+		$order_by                          = sanitize_sql_orderby( ig_es_get_request_data( 'orderby' ) );
+		$order                             = ig_es_get_request_data( 'order' );
+		$campaign_id                       = ig_es_get_request_data( 'campaign_id' );
+		$search                            = ig_es_get_request_data( 's' );
+		$filter_reports_by_campaign_status = ig_es_get_request_data( 'filter_reports_by_status' );
+		$filter_reports_by_campaign_type   = ig_es_get_request_data( 'filter_reports_by_campaign_type' );
 
 		$ig_mailing_queue_table = IG_MAILING_QUEUE_TABLE;
 
@@ -442,8 +495,9 @@ class ES_Reports_Table extends WP_List_Table {
 			$sql = "SELECT * FROM {$ig_mailing_queue_table}";
 		}
 
-		$where_columns = array();
-		$where_args    = array();
+		$where_columns    = array();
+		$where_args       = array();
+		$add_where_clause = true;
 
 		if ( ! empty( $campaign_id ) && is_numeric( $campaign_id ) ) {
 			$where_columns[] = 'campaign_id = %d';
@@ -457,7 +511,25 @@ class ES_Reports_Table extends WP_List_Table {
 		}
 
 		if ( ! empty( $where_query ) ) {
-			$sql .= ' WHERE ' . $where_query;
+			$sql              .= ' WHERE ' . $where_query;
+			$add_where_clause = false;
+		}
+
+		if ( ! empty( $filter_reports_by_campaign_status ) || ( '0' === $filter_reports_by_campaign_status ) ) {
+			if ( ! $add_where_clause ) {
+				$sql .= $wpdb->prepare( ' AND status = %s', $filter_reports_by_campaign_status );
+			} else {
+				$sql              .= $wpdb->prepare( ' WHERE status = %s', $filter_reports_by_campaign_status );
+				$add_where_clause = false;
+			}
+		}
+
+		if ( ! empty( $filter_reports_by_campaign_type ) ) {
+			if ( ! $add_where_clause ) {
+				$sql .= $wpdb->prepare( ' AND meta LIKE %s', '%' . $wpdb->esc_like( $filter_reports_by_campaign_type ) . '%' );
+			} else {
+				$sql .= $wpdb->prepare( ' WHERE meta LIKE %s', '%' . $wpdb->esc_like( $filter_reports_by_campaign_type ) . '%' );
+			}
 		}
 
 		if ( ! $do_count_only ) {
@@ -481,9 +553,9 @@ class ES_Reports_Table extends WP_List_Table {
 				$order_by_clause = " ORDER BY {$order_by} {$order}, {$default_order_by} DESC";
 			}
 
-			$sql   .= $order_by_clause;
-			$sql   .= " LIMIT $per_page";
-			$sql   .= ' OFFSET ' . ( $page_number - 1 ) * $per_page;
+			$sql    .= $order_by_clause;
+			$sql    .= " LIMIT $per_page";
+			$sql    .= ' OFFSET ' . ( $page_number - 1 ) * $per_page;
 			$result = $wpbd->get_results( $sql, 'ARRAY_A' );
 
 		} else {
@@ -494,7 +566,7 @@ class ES_Reports_Table extends WP_List_Table {
 	}
 
 	public function process_bulk_action() {
-		$allowedtags 			= ig_es_allowed_html_tags_in_esc();
+		$allowedtags = ig_es_allowed_html_tags_in_esc();
 		// Detect when a bulk action is being triggered...
 		if ( 'view' === $this->current_action() ) {
 
@@ -553,8 +625,8 @@ class ES_Reports_Table extends WP_List_Table {
 
 	public function preview_email( $report_id ) {
 		ob_start();
-		$allowedtags 			= ig_es_allowed_html_tags_in_esc();
-		add_filter( 'safe_style_css', 'ig_es_allowed_css_style' ); 
+		$allowedtags = ig_es_allowed_html_tags_in_esc();
+		add_filter( 'safe_style_css', 'ig_es_allowed_css_style' );
 		?>
 		<div class="wrap">
 			<h2 style="margin-bottom:1em;">
@@ -590,6 +662,46 @@ class ES_Reports_Table extends WP_List_Table {
 
 	}
 
+	/**
+	 * Prepare search box
+	 *
+	 * @param string $text
+	 * @param string $input_id
+	 *
+	 * @since 4.6.5
+	 */
+	public function search_box( $text = '', $input_id = '' ) {
+		?>
+		<p class="search-box">
+			<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_attr( $text ); ?>:</label>
+			<input type="search" id="<?php echo esc_attr( $input_id ); ?>" name="s" value="<?php _admin_search_query(); ?>"/>
+			<?php submit_button( __( 'Search Reports', 'email-subscribers' ), 'button', false, false, array( 'id' => 'search-submit' ) ); ?>
+		</p>
+		<p class="search-box search-group-box box-ma10">
+			<?php
+			$filter_by_status = ig_es_get_request_data( 'filter_reports_by_status' );
+			?>
+			<select name="filter_reports_by_status" id="ig_es_filter_report_by_status">
+				<?php
+				$allowedtags = ig_es_allowed_html_tags_in_esc();
+				add_filter( 'safe_style_css', 'ig_es_allowed_css_style' );
+				$campaign_report_status = ES_Common::prepare_campaign_report_statuses_dropdown_options( $filter_by_status, __( 'All Status', 'email-subscribers' ) );
+				echo wp_kses( $campaign_report_status, $allowedtags );
+				?>
+			</select>
+		</p>
+		<p class="search-box search-group-box box-ma10">
+			<?php $filter_by_campaign_type = ig_es_get_request_data( 'filter_reports_by_campaign_type' ); ?>
+			<select name="filter_reports_by_campaign_type" id="ig_es_filter_reports_by_campaign_type">
+				<?php
+				$campaign_report_type = ES_Common::prepare_campaign_type_dropdown_options( $filter_by_campaign_type, __( 'All Type', 'email-subscribers' ) );
+				echo wp_kses( $campaign_report_type, $allowedtags );
+				?>
+			</select>
+		</p>
+		<?php
+	}
+
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
 			self::$instance = new self();
@@ -597,4 +709,5 @@ class ES_Reports_Table extends WP_List_Table {
 
 		return self::$instance;
 	}
+
 }

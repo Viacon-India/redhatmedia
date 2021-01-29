@@ -714,7 +714,7 @@ class ES_Admin_Settings {
 		// If there is help text
 		if ( ! empty( $arguments['desc'] ) ) {
 			$helper      = $arguments['desc'];
-			$field_html .= sprintf( '<p class="mb-2 text-xs italic font-normal leading-snug text-gray-500 helper"> %s</p>', $helper ); // Show it
+			$field_html .= sprintf( '<p class="field-desciption mb-2 text-xs italic font-normal leading-snug text-gray-500 helper %s"> %s</p>', $class, $helper ); // Show it
 		}
 
 		return $field_html;
@@ -874,7 +874,14 @@ class ES_Admin_Settings {
 			if ( ! empty( $mailer['is_premium'] ) ) {
 				$html .= '<span class="premium-icon"></span>';
 			}
-			$html .= '</div></label>';
+			
+			$html .= '</div>'; 
+
+			if ( ! empty( $mailer['is_premium'] ) ) {
+				$html .= '</a>';
+			}
+
+			$html .= '</label>';
 		}
 
 		return $html;

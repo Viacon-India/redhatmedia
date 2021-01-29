@@ -46,7 +46,7 @@ if(!function_exists('bstelar_setup'))
 		add_image_size('blog-card-thumbnail', 560, 390, true);
 		add_image_size('news-card-thumbnail', 263, 164, true);
 		add_image_size('archive-card-thumbnail', 400, 320, true);
-		add_image_size('sidebar-post-thumbnail', 100, 80, true);
+		add_image_size('sidebar-thumbnail', 80, 80, true);
 		
 		$GLOBALS['content_width'] = 900;
 		

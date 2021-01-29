@@ -4,9 +4,9 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Author URI: https://www.icegram.com/
 Tags: email marketing, subscription, autoresponder, post notification, welcome email
 Requires at least: 3.9
-Tested up to: 5.5.3
+Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 4.6.4
+Stable tag: 4.6.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses
 
@@ -303,6 +303,28 @@ Refer [here](https://www.icegram.com/documentation/es-faq/).
 
 
 == Changelog ==
+
+**4.6.7 (21.01.2021)**
+
+* New: Show contacts' country on the audience page [PRO]
+* New: Import existing WordPress users [PRO]
+* New: Add attachments to broadcast and sequence campaigns [PRO]
+* New: Send emails using Amazon SES [PRO]
+* Update: Improved campaign report UI
+* Fix: Invalid nonce issue due to caching while subscribing
+
+**4.6.6 (14.01.2021)**
+
+* New: Now, able to map fields while importing
+* Update: Improved UI
+* Fix: YouTube video embedding issue
+
+**4.6.5 (22.12.2020)**
+
+* New: WooCommerce Abandoned Cart [PRO]
+* New: Added option to disable storing of subscribers' IP Address [PRO]
+* New: Added new column 'Last Opened At' on the audience page [PRO]
+* New: Added option to filter reports by campaign type and status
 
 **4.6.4 (24.11.2020)**
 

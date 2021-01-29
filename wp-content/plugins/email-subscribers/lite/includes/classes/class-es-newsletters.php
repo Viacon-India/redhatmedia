@@ -568,13 +568,13 @@ class ES_Newsletters {
 
 				// Add notification to mailing queue if not already added.
 				if ( empty( $notification ) ) {
-					// We need to set mailing queue status to Queueing to ensure it is not picked by Cron(WP Cron or ES Cron) before all of its subscribers are added to the sending queue.
-					$data['status']      = 'Queueing';
-					$data['count']       = 0; // Count would be added in background process after all subscribers are added in the sending_queue table.
+					$data['count']       = 0;
 					$mailing_queue_id    = ES_DB_Mailing_Queue::add_notification( $data );
+					$mailing_queue_hash  = $guid;
 					$should_queue_emails = true;
 				} else {
-					$notification_id     = $notification['id'];
+					$mailing_queue_id    = $notification['id'];
+					$mailing_queue_hash  = $notification['hash'];
 					$notification_status = $notification['status'];
 					// Check if notification is not sending or already sent then only update the notification.
 					if ( ! in_array( $notification_status, array( 'Sending', 'Sent' ), true ) ) {
@@ -586,27 +586,43 @@ class ES_Newsletters {
 						// Check if list has been updated, if yes then we need to delete emails from existing lists and requeue the emails from the updated lists.
 						if ( $selected_list_ids !== $existing_list_ids ) {
 							$should_queue_emails = true;
-							$mailing_queue_id    = $notification_id;
 							$data['count']       = 0;
-							$data['status']      = 'Queueing';
 						} else {
 							$data['count']       = $notification['count'];
 						}
 
-						$notification        = ES_DB_Mailing_Queue::update_notification( $notification_id, $data );
+						$notification        = ES_DB_Mailing_Queue::update_notification( $mailing_queue_id, $data );
 					}
 				}
 
-				if ( ! empty( $mailing_queue_id ) && $should_queue_emails ) {
+				if ( ! empty( $mailing_queue_id ) ) {
+					
+					if ( $should_queue_emails ) {
 
-					// Delete existing sending queue if any already present.
-					ES_DB_Sending_Queue::delete_sending_queue_by_mailing_id( array( $mailing_queue_id ) );
+						// Delete existing sending queue if any already present.
+						ES_DB_Sending_Queue::delete_sending_queue_by_mailing_id( array( $mailing_queue_id ) );
 
-					$action_args = array(
-						'mailing_queue_id' => $mailing_queue_id,
-						'list_ids'         => $list_id,
-					);
-					IG_ES_Background_Process_Helper::add_action_scheduler_task( 'ig_es_add_subscribers_to_sending_queue', $action_args );
+						ES_DB_Sending_Queue::do_insert_from_contacts_table( $mailing_queue_id, $mailing_queue_hash, $campaign_id, $list_id );
+					}
+					
+					$mailing_queue = ES_DB_Mailing_Queue::get_email_by_id( $mailing_queue_id );
+					if ( ! empty( $mailing_queue ) ) {
+		
+						$queue_start_at    = $mailing_queue['start_at'];
+						$current_timestamp = time();
+						$sending_timestamp = strtotime( $queue_start_at );
+			
+						// Check if campaign sending time has come.
+						if ( ! empty( $sending_timestamp ) && $sending_timestamp <= $current_timestamp ) {
+							$request_args = array(
+								'action'        => 'ig_es_trigger_mailing_queue_sending',
+								'campaign_hash' => $mailing_queue_hash,
+							);
+							// Send an asynchronous request to trigger sending of campaign emails.
+							IG_ES_Background_Process_Helper::send_async_ajax_request( $request_args, true );
+						}
+					
+					}
 				}
 			}
 		}

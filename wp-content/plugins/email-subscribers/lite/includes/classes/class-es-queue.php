@@ -168,11 +168,8 @@ if ( ! class_exists( 'ES_Queue' ) ) {
 											$mailing_queue_id = $result['id'];
 											
 											if ( ! empty( $mailing_queue_id ) ) {
-												$action_args = array(
-													'mailing_queue_id' => $mailing_queue_id,
-													'list_ids'         => $list_id,
-												);
-												IG_ES_Background_Process_Helper::add_action_scheduler_task( 'ig_es_add_subscribers_to_sending_queue', $action_args );
+												$mailing_queue_hash = $result['hash'];
+												ES_DB_Sending_Queue::do_insert_from_contacts_table( $mailing_queue_id, $mailing_queue_hash, $campaign_id, $list_id );
 											}
 										}
 									}
@@ -363,7 +360,7 @@ if ( ! class_exists( 'ES_Queue' ) ) {
 					'subject'     => $subject,
 					'body'        => $content,
 					'count'       => 0,
-					'status'      => 'Queueing',
+					'status'      => 'In Queue',
 					'start_at'    => ! empty( $campaign['start_at'] ) ? $campaign['start_at'] : '',
 					'finish_at'   => '',
 					'created_at'  => ig_get_current_date_time(),
@@ -898,10 +895,10 @@ if ( ! class_exists( 'ES_Queue' ) ) {
 			
 			if ( ! empty( $active_subscribers ) ) {
 				$subscribers_batch_size = 5000; 
-	
+				
 				// Create batches of subscribers each containing maximum subscribers equal to $subscribers_batch_size.
 				$subscribers_batches = array_chunk( $active_subscribers, $subscribers_batch_size );
-	
+				
 				foreach ( $subscribers_batches as $key => $subscribers ) {
 					
 					$delivery_data                     = array();

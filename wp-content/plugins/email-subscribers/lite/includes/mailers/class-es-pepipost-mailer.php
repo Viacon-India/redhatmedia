@@ -65,6 +65,20 @@ if ( ! class_exists( 'ES_Pepipost_Mailer' ) ) {
 			$params['from']['fromName']                = $message->from_name;
 			$params['subject']                         = $message->subject;
 			$params['content']                         = $message->body;
+			
+			$attachments = $message->attachments;
+			if ( ! empty( $attachments ) ) {
+				foreach ( $attachments as $attachment_name => $attachment_path ) {
+					if ( is_file( $attachment_path ) ) {
+						$attachment_content = file_get_contents( $attachment_path );
+						$encoded_content = base64_encode( $attachment_content );
+						$params['attachments'][] = array(
+							'fileContent' => $encoded_content,
+							'fileName' => $attachment_name,
+						);
+					}
+				}
+			}
 
 			$headers = array(
 				'user-agent'   => 'APIMATIC 2.0',

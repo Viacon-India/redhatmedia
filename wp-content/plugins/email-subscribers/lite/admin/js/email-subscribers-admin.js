@@ -96,8 +96,8 @@
 			jQuery(".es-audience-view .bulkactions #bulk-action-selector-top").after(statusselect);
 			jQuery(".es-audience-view .bulkactions #bulk-action-selector-top").after(groupselect);
 
-			//jQuery(".es-audience-view .bulkactions #bulk-action-selector-bottom").after(statusselect);
-			// jQuery(".es-audience-view .bulkactions #bulk-action-selector-bottom").after(groupselect);
+			jQuery('.groupsselect').hide();
+			jQuery('.statusesselect').hide();
 
 			jQuery("#bulk-action-selector-top").change(function () {
 				if (jQuery('option:selected', this).attr('value') == 'bulk_list_update' || jQuery('option:selected', this).attr('value') == 'bulk_list_add') {
@@ -244,6 +244,8 @@
 				campaign_status(campaign_type);
 			});
 
+			$('#ig_es_filter_reports_by_campaign_type option[value="sequence"]').hide();
+
 			function campaign_status( campaign_type ) {
 				var $status_id = $('#ig_es_filter_campaign_status_by_type');
 				switch (campaign_type) {
@@ -371,8 +373,9 @@
 			//es mailer settings
 			jQuery(document).on('change', '.es_mailer', function (e) {
 				var val = jQuery('.es_mailer:checked').val();
-				jQuery('[name*="ig_es_mailer_settings"], .es_sub_headline').not('.es_mailer').hide();
-				jQuery(document).find('.' + val).show();
+				var wrapper_row = jQuery(this).closest('tr');
+				jQuery(wrapper_row).find('[name*="ig_es_mailer_settings"], .es_sub_headline, .field-desciption').not('.es_mailer').hide();
+				jQuery(wrapper_row).find('.' + val).show();
 			});
 			jQuery('.es_mailer').trigger('change');
 
@@ -448,7 +451,7 @@
 
 				let form_data = $(this).closest('form').serialize();
 				// Add action to form data
-				form_data += form_data + '&action=ig_es_draft_broadcast&security='  + ig_es_js_data.security;
+				form_data += '&action=ig_es_draft_broadcast&security='  + ig_es_js_data.security;
 				jQuery.ajax({
 					method: 'POST',
 					url: ajaxurl,
@@ -652,6 +655,7 @@
 			jQuery('#ig-es-optin-trial-to-premium-offer').on('click', function(){
 				jQuery(this).closest('.notice').hide('slow');
 			});
+
 		});
 
 })(jQuery);

@@ -576,6 +576,7 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 			$this->time_start = time();
 			$message_id       = ! empty( $merge_tags['message_id'] ) ? $merge_tags['message_id'] : 0;
 			$campaign_id      = ! empty( $merge_tags['campaign_id'] ) ? $merge_tags['campaign_id'] : 0;
+			$attachments      = ! empty( $merge_tags['attachments'] ) ? $merge_tags['attachments'] : array();
 
 			$sender_data   = array();
 			$campaign_type = '';
@@ -591,6 +592,25 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 						$sender_data['from_email']     = $from_email;
 						$sender_data['reply_to_email'] = $reply_to_email;
 					}
+
+					$campaign_meta = maybe_unserialize( $campaign['meta'] );
+					if ( ! empty( $campaign_meta['attachments'] ) ) {
+						$sender_data['attachments'] = array();
+						$attachments                = $campaign_meta['attachments'];
+					}
+				}
+			}
+
+			if ( ! empty( $attachments ) ) {
+				foreach ( $attachments as $attachment_id ) {
+					if ( ! $attachment_id ) {
+						continue;
+					}
+					$attached_file = get_attached_file( $attachment_id );
+					if ( ! is_file( $attached_file ) ) {
+						continue;
+					}
+					$sender_data['attachments'][ basename( $attached_file ) ] = $attached_file;
 				}
 			}
 
@@ -695,11 +715,13 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 			$sender_name    = '';
 			$sender_email   = '';
 			$reply_to_email = '';
+			$attachments    = array();
 			// If sender data is passed .i.g. set in the campaign then use it.
 			if ( ! empty( $sender_data ) ) {
-				$sender_name    = ! empty( $sender_data['from_name'] ) ? $sender_data['from_name']  : '';
-				$sender_email   = ! empty( $sender_data['from_email'] ) ? $sender_data['from_email']: '';
-				$reply_to_email = ! empty( $sender_data['reply_to_email'] ) ? $sender_data['reply_to_email'] : '';
+				$sender_name    = ! empty( $sender_data['from_name'] ) ? $sender_data['from_name']          : '';
+				$sender_email   = ! empty( $sender_data['from_email'] ) ? $sender_data['from_email']        : '';
+				$reply_to_email = ! empty( $sender_data['reply_to_email'] ) ? $sender_data['reply_to_email']: '';
+				$attachments    = ! empty( $sender_data['attachments'] ) ? $sender_data['attachments']      : array();
 			}
 
 			// If sender name is not passed then fetch it from ES settings.
@@ -717,19 +739,24 @@ if ( ! class_exists( 'ES_Mailer' ) ) {
 				$reply_to_email = $this->get_from_email();
 			}
 
-			$subject = html_entity_decode( $subject, ENT_QUOTES, get_bloginfo( 'charset' ) );
+			$charset = get_bloginfo( 'charset' );
 
-			$message->from      = $sender_email;
-			$message->from_name = $sender_name;
-			$message->to        = $email;
-			$message->subject   = $subject;
-			$message->body      = $body;
+			$subject = html_entity_decode( $subject, ENT_QUOTES, $charset );
+
+			$message->from           = $sender_email;
+			$message->from_name      = $sender_name;
+			$message->to             = $email;
+			$message->subject        = $subject;
+			$message->body           = $body;
+			$message->attachments    = $attachments;
+			$message->reply_to_email = $reply_to_email;
+			$message->charset        = $charset;
 
 			$headers = array(
 				"From: \"$sender_name\" <$sender_email>",
 				'Return-Path: <' . $sender_email . '>',
 				'Reply-To: <' . $reply_to_email . '>',
-				'Content-Type: text/html; charset="' . get_bloginfo( 'charset' ) . '"'
+				'Content-Type: text/html; charset="' . $charset . '"'
 			);
 
 			$message->headers = $headers;

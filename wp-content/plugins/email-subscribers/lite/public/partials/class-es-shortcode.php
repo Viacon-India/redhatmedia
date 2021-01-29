@@ -250,7 +250,6 @@ class ES_Shortcode {
 				<span class="es_spinner_image" id="spinner-image"><img src="<?php echo esc_url( $spinner_image_path ); ?>" alt="Loading"/></span>
 
 			</form>
-
 			<span class="es_subscription_message" id="es_subscription_message_<?php echo esc_attr( $unique_id ); ?>"></span>
 		</div>
 

@@ -1,6 +1,6 @@
 <?php
 get_header();
-/*?>
+?>
 
 <main class="main">
     <section class="blog">
@@ -20,6 +20,8 @@ get_header();
                 </div>
 
                 <div class="col-md-9">
+
+                
 
                   <?php if (have_posts() ) : ?>   
 
@@ -46,9 +48,10 @@ get_header();
                   <?php endif; ?>
 
                 </div>
+                
+                
                 <div class="col-md-3">
-
-                <?php get_template_part( 'template-parts/content', 'sidebar'); ?>
+                    <?php get_template_part( 'template-parts/content', 'news-sidebar');?>
                 </div>
 
 
@@ -60,4 +63,4 @@ get_header();
 					
 	
 <?php
-get_footer();*/ ?>
+get_footer(); ?>

@@ -158,14 +158,16 @@ if ( ! class_exists( 'IG_ES_Background_Process_Helper' ) ) {
 		 * 
 		 * @since 4.6.3
 		 */
-		public static function add_action_scheduler_task( $action = '', $action_args = array(), $process_asynchronously = true, $should_wait = false ) {
+		public static function add_action_scheduler_task( $action = '', $action_args = array(), $process_asynchronously = true, $should_wait = false, $time = 0 ) {
 
-			if ( empty( $action ) || empty( $action_args ) ) {
+			if ( empty( $action ) ) {
 				return false;
 			}
 
 			if ( function_exists( 'as_schedule_single_action' ) ) {
-				$action_id = as_schedule_single_action( time(), $action, array( $action_args ), 'email-subscribers' );
+				$time = ! empty( $time ) ? $time : time();
+				$action_id = as_schedule_single_action( $time, $action, array( $action_args ), 'email-subscribers' );
+
 				if ( ! empty( $action_id ) ) {
 					if ( $process_asynchronously ) {
 						$request_args = array(
@@ -247,7 +249,9 @@ if ( ! class_exists( 'IG_ES_Background_Process_Helper' ) ) {
 				'cookies'   => $_COOKIE,
 				'sslverify' => apply_filters( 'https_local_ssl_verify', false ),
 			);
-
+			
+			$args = apply_filters( 'ig_es_async_request_args', $args );
+			
 			// Make a asynchronous request.
 			$response = wp_remote_get( esc_url_raw( $admin_ajax_url ), $args );
 

@@ -85,21 +85,23 @@ function get_popular_posts_func() {
 
     <?php if (!empty($popular_query)) { ?>
       
-        <div class="myreport-cont">
+      <div class="myreport-cont">
         <h5 class="asid-content-title">Popular Posts</h5>
-          <ul class="my-report-card-ul">
-            <?php $pCount = 1;
-            foreach($popular_query as $post) { ?>
+        <ul class="my-report-card-ul">
+          <?php $pCount = 1;
+          foreach($popular_query as $post) { ?>
+          
+              <li class="my-report-card-li"> 
+                <span class="my-report-card-span"><?php echo $pCount; ?></span>
+                <a href="<?php echo get_the_permalink($post->ID); ?>">
+                  <?php get_limited_title_func($post->post_title, 40); ?>
+                </a>
+              </li>
             
-                <li class="my-report-card-li"> 
-                  <span class="my-report-card-span"><?php echo $pCount; ?></span>
-                  <h4><a href="<?php echo get_the_permalink($post->ID); ?>"><?php get_limited_title_func($post->post_title, 40); ?></a></h4>
-                </li>
-              
-            <?php $pCount++;
-            } ?>
-          </ul>
-        </div>
+          <?php $pCount++;
+          } ?>
+        </ul>
+      </div>
 
 <?php }
 }
@@ -128,7 +130,7 @@ function get_recent_posts_func() {
             
                 <li class="asid-li">
                     <span class="left-span">
-                      <?php echo get_the_post_thumbnail($post->ID,'sidebar-post-thumbnail'); ?>
+                      <?php echo get_the_post_thumbnail($post->ID,'sidebar-thumbnail'); ?>
                     </span>
                     <a class="asid-link" href="<?php echo get_the_permalink($post->ID); ?>">                        
                         <?php get_limited_title_func($post->post_title, 30); ?>
@@ -168,7 +170,9 @@ function get_popular_news_func() {
             
                 <li class="my-report-card-li"> 
                   <span class="my-report-card-span"><?php echo $pCount; ?></span>
-                  <h4><a href="<?php echo get_the_permalink($post->ID); ?>"><?php get_limited_title_func($post->post_title, 40); ?></a></h4>
+                  <a href="<?php echo get_the_permalink($post->ID); ?>">
+                    <?php get_limited_title_func($post->post_title, 40); ?>
+                  </a>
                 </li>
               
             <?php $pCount++;

@@ -1,7 +1,14 @@
 <?php $branddata = get_post_meta( get_option( 'page_on_front' ), 'rhm_frontpage_brand_data' ); ?>
 
 <!-- start footer  -->
-<footer class="footer">
+<footer class="footer" style="    width: 100%;
+    padding: calc(50px + 3vmin) 0;
+    background: url(<?php echo get_template_directory_uri(); ?>/assets/images/background-1.png);
+    background-repeat: no-repeat;
+    -o-object-fit: cover;
+    object-fit: cover;
+    background-size: cover;
+    background-position: right;">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -18,18 +25,22 @@
               <h2 class="title">About red hat media</h2>
             </div>
             <div class="footer-about-text-wrapper">
-
-            <?php echo abn_option('abn_footer_about_us'); ?>
-              
+              <?php echo wptexturize(abn_option('abn_footer_about_us')); ?>              
             </div>
             <div class="brand-link-wrapper">
               <h3 class="brand-title">
                 Our Brands: <span>Very well</span>
               </h3>
 
-              <?php foreach($branddata[0] as $data) { ?>
-                <a class="brand-link" target="_blank" href="<?php echo $data['link']; ?>"> <?php echo $data['name']; ?> </a>
-              <?php } ?>
+              <?php if(!empty($branddata[0])) {
+                foreach($branddata[0] as $data) {
+                  if(!empty($data['name'])) { ?>
+                    <a class="brand-link" target="_blank" href="<?php if(!empty($data['link'])) { echo $data['link']; } ?>"> 
+                      <?php echo $data['name']; ?>
+                    </a>
+              <?php }
+                }
+              } ?>
 
             </div>
             <div class="copy-wright-wrapper">

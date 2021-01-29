@@ -109,12 +109,12 @@ function abn_news_cat()
 		  'add_new_item' => __( 'Add New Category' ),
 		  'new_item_name' => __( 'New Category Name' ),
 		  );
-		  register_taxonomy('cat',array('news'), array(
+		  register_taxonomy('news-cat',array('news'), array(
 		  'hierarchical' => true,
 		  'labels' => $labels,
 		  'show_ui' => true,
 		  'query_var' => true,
-		  'rewrite' => array( 'slug' => 'cat'),
+		  'rewrite' => array( 'slug' => 'news-cat'),
 	  ));
   
 }

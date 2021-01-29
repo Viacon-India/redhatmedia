@@ -34,7 +34,7 @@ $popular_query = get_posts($popular_args);
 $google_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news', 
   'tax_query' => array(
     array(
-      'taxonomy' => 'cat',
+      'taxonomy' => 'news-cat',
       'field' => 'term_id',
       'terms' => 11
       )
@@ -44,7 +44,7 @@ $google_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news',
 $digital_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news', 
   'tax_query' => array(
     array(
-      'taxonomy' => 'cat',
+      'taxonomy' => 'news-cat',
       'field' => 'term_id',
       'terms' => 10
       )
@@ -54,7 +54,7 @@ $digital_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news',
 $social_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news', 
   'tax_query' => array(
     array(
-      'taxonomy' => 'cat',
+      'taxonomy' => 'news-cat',
       'field' => 'term_id',
       'terms' => 12
       )
@@ -62,7 +62,7 @@ $social_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news',
   )
 );
 
-$categories = get_terms( 'cat', array(
+$categories = get_terms( 'news-cat', array(
   'hide_empty' => false,
 ) );
 ?>
@@ -80,11 +80,11 @@ $categories = get_terms( 'cat', array(
           <div class="col-md-8">
             <div class="header-title-warper">
               <h1 class="title">
-                <?php echo $rhm_banner_heading; ?>
+                <?php if(!empty($rhm_banner_heading)) { echo $rhm_banner_heading; } ?>
               </h1>
             </div>
             <div class="header-text-warper">            
-                <?php echo $rhm_banner_content; ?>
+            <?php if(!empty($rhm_banner_content)) { echo $rhm_banner_content; } ?>
             </div>
           </div>          
         </div>
@@ -215,7 +215,7 @@ $categories = get_terms( 'cat', array(
                     $rc = 1;
                     while ( $blog_query->have_posts() ) : $blog_query->the_post();
 
-                      if($i <= $posts_per_page) {
+                      if($rc <= $posts_per_page) {
 
                         get_template_part( 'template-parts/content', 'news-card1' );
 

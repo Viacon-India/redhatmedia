@@ -119,3 +119,152 @@
   width: $size;
   height: $size;
 }
+
+@mixin underline-animation(
+  $width: 100%,
+  $position: relative,
+  $underline-color: var(--primary),
+  $time: 0.3s
+) {
+  position: $position;
+
+  &:after {
+    content: "";
+    background: var(--primary);
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.1s;
+  }
+
+  &:hover {
+    &:after {
+      width: $width;
+      transition: $time;
+      background-color: $underline-color;
+    }
+  }
+}
+
+@mixin custom-bullet($bullet: "+") {
+  position: relative;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1.2em;
+
+  li:before {
+    content: $bullet;
+    position: absolute;
+    left: 0;
+    @content;
+  }
+}
+
+@mixin color-bullet($color: var(--primary), $size: calc(4px + 0.5vmin)) {
+  @include custom-bullet("") {
+    width: $size;
+    height: $size;
+    background-color: $color;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 0.5rem;
+    @content;
+  }
+}
+
+@mixin text-formal {
+  @content;
+
+  p {
+    font-size: calc(10px + 1.1vmin);
+    color: #5e5e5e;
+    margin-bottom: 1rem;
+    line-height: 2;
+
+    img {
+      margin-bottom: 0px;
+    }
+  }
+
+  img {
+    max-height: 60vh;
+    max-width: 100%;
+    object-fit: contain;
+    height: auto;
+    margin-bottom: 2vmin;
+    // @include mq($from: tablet) {
+    //   object-fit: cover;
+    // }
+  }
+
+  h {
+    &1 {
+      margin-top: 3vmin;
+      font-size: calc(13px + 2.1vmin);
+    }
+
+    &2 {
+      margin-top: 2.9vmin;
+      font-size: calc(11px + 2vmin);
+    }
+
+    &3 {
+      margin-top: 2.8vmin;
+      font-size: calc(9px + 2vmin);
+    }
+
+    &4 {
+      margin-top: 2.4vmin;
+      font-size: calc(7px + 2vmin);
+    }
+
+    &5 {
+      margin-top: 2vmin;
+      font-size: calc(5px + 2vmin);
+    }
+
+    &6 {
+      margin-top: 1.6min;
+      font-size: calc(3px + 2vmin);
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    margin-bottom: 1vmin;
+  }
+
+  ul {
+    li {
+      font-size: calc(10px + 1.1vmin);
+      color: #5e5e5e;
+      margin-bottom: 1rem;
+      line-height: 2;
+      margin-bottom: 1vmin;
+    }
+  }
+  ol {
+    li {
+      font-size: calc(10px + 1.1vmin);
+      color: #5e5e5e;
+      margin-bottom: 1rem;
+      line-height: 2;
+      margin-bottom: 1vmin;
+    }
+  }
+
+  *:not(.post-tags) a {
+    text-decoration: underline;
+
+    // @include underline-animation();
+
+    &:hover {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  }
+}
