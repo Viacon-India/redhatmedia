@@ -23232,6 +23232,7 @@ body {
 
 .news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a {
   color: #000;
+  text-decoration: none;
 }
 
 .news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a:hover, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a:hover {
@@ -23387,8 +23388,15 @@ header form button i {
   background: #ccc;
   display: inline-table;
   border-radius: 50%;
-  padding: 0px 0.8rem;
   color: #000;
+  min-width: calc(20px + 1vmin);
+  min-height: calc(20px + 1vmin);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .single {
@@ -23596,10 +23604,6 @@ header form button i {
   font-weight: 800;
   margin: 0px;
   padding: 3vmin 0 3vmin 0;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .single .article .mata-section {
