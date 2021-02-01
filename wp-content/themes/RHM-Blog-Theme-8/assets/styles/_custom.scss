@@ -1,7 +1,7 @@
 @import "./common";
 
 
-.news-temp, .single-news {
+.news-temp, .single-news, .tax-news-cat {
     .posts-section {
         section {
             padding: 8vmin 0;
@@ -198,11 +198,7 @@ header {
     width: 100%;
     /* padding: 5rem 0; */
     background: var(--color-smoke);
-    @include text-formal;
-    nav.navbar-dark {
-        background: #840002b3;
-        backdrop-filter: blur(4px);
-    } 
+    @include text-formal;     
     .blog-banner {
         margin-top: -100px !important;
         img {

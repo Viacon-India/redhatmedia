@@ -18,3 +18,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 header {
     margin-top: -60px;
 }
+
+.single-news nav.navbar-dark, .tax-news-cat nav.navbar-dark {
+    background: #840002b3;
+    backdrop-filter: blur(4px);
+}
