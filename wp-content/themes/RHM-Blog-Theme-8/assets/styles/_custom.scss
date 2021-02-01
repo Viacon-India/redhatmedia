@@ -185,7 +185,7 @@ header {
         li {
             .my-report-card-span {
                 background: #ccc;
-                display: inline-table;
+                display: flex;
                 border-radius: 50%;
                 color: #000;
                 min-width: calc(20px + 1vmin);

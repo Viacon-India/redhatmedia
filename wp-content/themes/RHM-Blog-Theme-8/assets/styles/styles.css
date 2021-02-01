@@ -23390,7 +23390,9 @@ header form button i {
 
 .aside-bar .popular-posts li .my-report-card-span {
   background: #ccc;
-  display: inline-table;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   border-radius: 50%;
   color: #000;
   min-width: calc(20px + 1vmin);
