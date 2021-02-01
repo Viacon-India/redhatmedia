@@ -82,11 +82,10 @@
     }
   }
   .navbar-nav {
-
     .nav-item {
-
       .nav-link {
         color: var(--color-smoke);
+        text-decoration: none;
         .fa {
           width: 20px;
           font-weight: 400;
@@ -100,8 +99,8 @@
       display: none;
     }
   }
+  
 }
-
 
 //  start heder
 .header {
