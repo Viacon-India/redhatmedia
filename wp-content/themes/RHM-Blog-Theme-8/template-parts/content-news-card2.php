@@ -14,6 +14,9 @@
 					</h2>
 				</div>
 			</div>
+			<div class="c-link-wrapper">
+				<a href="<?php echo get_the_permalink(); ?>" class="c-link">continue reading</a>
+			</div>
 		</div>
 	</div>
 </div>

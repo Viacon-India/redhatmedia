@@ -23249,6 +23249,33 @@ body {
   font-size: calc(6px + 1.5vmin);
 }
 
+.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper {
+  padding: 0 0 2vmin 2vmin;
+}
+
+.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link {
+  text-transform: uppercase;
+  font-family: "Raleway";
+  font-size: calc(8px + 1vmin);
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link:after, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link:after, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link:after {
+  content: "\f178";
+  font-family: "FontAwesome";
+  font-weight: 200;
+  padding: 0 1vmin;
+  width: 100px;
+}
+
+.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link:hover, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link:hover, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link:hover {
+  text-decoration: underline;
+  color: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) * 0.8));
+}
+
 .news-temp .posts-section section .news-card-wrapper .blog-img-card img, .single-news .posts-section section .news-card-wrapper .blog-img-card img, .tax-news-cat .posts-section section .news-card-wrapper .blog-img-card img {
   width: 100%;
   height: 164px;

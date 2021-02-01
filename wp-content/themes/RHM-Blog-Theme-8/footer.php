@@ -39,7 +39,7 @@
 
           </div>
           <div class="copy-wright-wrapper">
-            <a href="">TRUST e Terms of Use </a>|
+            <a href="">Terms of Use </a>|
             <a href="">Privacy Policy </a>|
             <a href="">Data Security Inquiries</a>
           </div>
