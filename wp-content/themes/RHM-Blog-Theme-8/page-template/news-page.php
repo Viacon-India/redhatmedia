@@ -70,11 +70,8 @@ $categories = get_terms( 'news-cat', array(
 
   <?php if(!empty($rhm_banner_img)) { ?>
     <!-- start banner/Header -->
-    <header class="header" style='
-    background: url("<?php echo $rhm_banner_img; ?>"); 
-    object-fit: cover;
-    background-size: cover;
-    background-position: right;'>
+    <header class="header">
+    <img src="<?php echo $rhm_banner_img; ?>" alt="service-banner">
       <div class="container">
         <div row="row">
           <div class="col-md-8">
@@ -163,9 +160,7 @@ $categories = get_terms( 'news-cat', array(
                                   
               <?php if ( !empty($google_arr) ) { ?>
                 <section class="news-blog">
-                  <div class="col-md-12">
-                    <h2 class="title-header"> Google</h2>
-                  </div>
+                  <h2 class="title-header"> Google</h2>
                   <div class="row">
                     <?php foreach($google_arr as $post) {
                       get_template_part( 'template-parts/content', 'news-card1' );
@@ -177,10 +172,8 @@ $categories = get_terms( 'news-cat', array(
 
                                   
               <?php if ( !empty($digital_arr) ) { ?>
-                <section class="news-blog">
-                  <div class="col-md-12">
+                <section class="news-blog">                  
                     <h2 class="title-header"> Digital Marketing</h2>
-                  </div>
                   <div class="row">
                     <?php foreach($digital_arr as $post) {
                         get_template_part( 'template-parts/content', 'news-card1' );
@@ -191,9 +184,7 @@ $categories = get_terms( 'news-cat', array(
                                   
               <?php if ( !empty($social_arr) ) { ?>
                 <section class="news-blog">
-                  <div class="col-md-12">
-                    <h2 class="title-header"> Social Media</h2>
-                  </div>
+                  <h2 class="title-header"> Social Media</h2>
                   <div class="row">
                     <?php foreach($social_arr as $post) {
                       get_template_part( 'template-parts/content', 'news-card1' );
@@ -204,11 +195,7 @@ $categories = get_terms( 'news-cat', array(
 
               <!---------------------------- Recent News -------------------------------> 
               <section class="recent-news">
-                <div class="col-md-12">
-                  <h2 class="title-header">
-                      Recent Posts
-                  </h2>
-                </div>
+                <h2 class="title-header"> Recent Posts</h2>
                 <div class="row">                    
                   <?php if ( $blog_query->have_posts() ) :  
 

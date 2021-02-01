@@ -10,11 +10,8 @@ foreach($myvals as $key=>$val) {
 ?>
 
 <!-- start banner/Header -->
-  <header class="header" style='
-  background: url("<?php echo $rhm_banner_img; ?>"); 
-  object-fit: cover;
-  background-size: cover;
-  background-position: right;'>
+  <header class="header">
+    <img src="<?php echo $rhm_banner_img; ?>" alt="banner-img"> 
     <div class="container">
       <div row="row">
         <div class="col-md-8">

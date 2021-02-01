@@ -22,6 +22,9 @@
             }
             .news-card-wrapper {        
                 background: var(--color-base-primary);
+                border-radius: calc(20px + 3vmin) 0;
+                overflow: hidden;
+                margin: 1rem 0;
                 .blog-c-card {
                     .c-card-text-wrapper {
                         

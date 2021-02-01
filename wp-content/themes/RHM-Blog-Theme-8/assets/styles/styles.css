@@ -23225,6 +23225,9 @@ body {
 
 .news-temp .posts-section section .news-card-wrapper, .single-news .posts-section section .news-card-wrapper, .tax-news-cat .posts-section section .news-card-wrapper {
   background: var(--color-base-primary);
+  border-radius: calc(20px + 3vmin) 0;
+  overflow: hidden;
+  margin: 1rem 0;
 }
 
 .news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper {
