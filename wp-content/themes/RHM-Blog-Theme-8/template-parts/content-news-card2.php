@@ -1,8 +1,10 @@
 <div class="col-md-4">
 	<div class="news-card-wrapper">
-		<div class="blog-img-card">
-			<?php echo get_the_post_thumbnail($post->ID,'news-card-thumbnail'); ?>
-		</div>
+		<a href="<?php echo get_the_permalink(); ?>" >
+			<div class="blog-img-card">
+				<?php echo get_the_post_thumbnail($post->ID,'news-card-thumbnail'); ?>
+			</div>
+		</a>
 		<div class="blog-c-card">
 			<div class="c-card-text-wrapper">
 				<div class="c-title-wrapper">
