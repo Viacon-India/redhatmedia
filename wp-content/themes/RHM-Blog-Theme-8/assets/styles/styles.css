@@ -11570,7 +11570,7 @@ body {
 
 .main .work-with-me-card-and-sec .work-with-me-card-wrapper .image-wrapper {
   width: 100%;
-  max-height: calc(100px + 70vmin);
+  max-height: calc(100px + 60vmin);
   overflow: hidden;
   border-radius: calc(10px + 2vmin) 0 0 0;
 }
@@ -11660,6 +11660,7 @@ body {
 .main .blog .blog-card-wrapper .blog-c-card .c-card-text-wrapper {
   padding: 8vmin 8vmin;
   background: var(--color-base-primary);
+  max-height: 555px;
 }
 
 .main .blog .blog-card-wrapper .blog-c-card .c-card-text-wrapper .date-time-wrapper .date-title {
@@ -11746,7 +11747,7 @@ body {
 
 .footer .footer-link-wrapper .link-sec .link-sec-li a {
   text-align: center;
-  padding: 0 calc(5px + 1vmin);
+  padding: 0 calc(5px + 1vmin) 0 0;
   text-transform: capitalize;
   color: var(--color-base-primary);
   font-size: calc(10px + 1vmin);
@@ -11774,6 +11775,7 @@ body {
   font-size: calc(10px + 1vmin);
   color: var(--color-smoke);
   font-family: "Raleway";
+  line-height: 1.6;
 }
 
 .footer .footer-about .brand-link-wrapper {
@@ -11806,6 +11808,7 @@ body {
   font-family: "Spectral";
   -webkit-transition: .3s;
   transition: .3s;
+  line-height: 1.6;
 }
 
 .footer .footer-about .brand-link-wrapper .brand-link:hover {
