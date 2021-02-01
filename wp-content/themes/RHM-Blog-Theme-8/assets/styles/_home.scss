@@ -456,6 +456,7 @@
         .c-card-text-wrapper {
           padding: 8vmin 8vmin;
           background: var(--color-base-primary);
+          max-height: 555px;
           .date-time-wrapper {
             .date-title {
               color: var(--secondary);

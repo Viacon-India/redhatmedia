@@ -11660,6 +11660,7 @@ body {
 .main .blog .blog-card-wrapper .blog-c-card .c-card-text-wrapper {
   padding: 8vmin 8vmin;
   background: var(--color-base-primary);
+  max-height: 555px;
 }
 
 .main .blog .blog-card-wrapper .blog-c-card .c-card-text-wrapper .date-time-wrapper .date-title {
