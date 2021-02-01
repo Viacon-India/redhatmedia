@@ -18,7 +18,7 @@ get_header();
     <article class="-section pt-4">
         <div class="container">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-md-9 col-sm-12">
 
                 <section class="news-banner">
                     <?php echo get_the_post_thumbnail(get_the_ID(),'singlepage-thumbnail',array('class' => 'banner-img'));
