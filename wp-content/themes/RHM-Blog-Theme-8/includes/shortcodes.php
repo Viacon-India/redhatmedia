@@ -133,7 +133,7 @@ function get_recent_posts_func() {
                       <?php echo get_the_post_thumbnail($post->ID,'sidebar-thumbnail'); ?>
                     </span>
                     <a class="asid-link" href="<?php echo get_the_permalink($post->ID); ?>">                        
-                        <?php get_limited_title_func($post->post_title, 30); ?>
+                        <?php echo $post->post_title; ?>
                     </a>
                 </li>
               
@@ -171,7 +171,7 @@ function get_popular_news_func() {
                 <li class="my-report-card-li"> 
                   <span class="my-report-card-span"><?php echo $pCount; ?></span>
                   <a href="<?php echo get_the_permalink($post->ID); ?>">
-                    <?php get_limited_title_func($post->post_title, 40); ?>
+                    <?php echo $post->post_title; ?>
                   </a>
                 </li>
               

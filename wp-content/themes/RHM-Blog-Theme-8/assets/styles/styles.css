@@ -23112,23 +23112,23 @@ body {
   font-family: var(--primary);
 }
 
-.news-temp .posts-section section, .single-news .posts-section section {
+.news-temp .posts-section section, .single-news .posts-section section, .tax-news-cat .posts-section section {
   padding: 8vmin 0;
   width: 100%;
 }
 
-.news-temp .posts-section section p, .single-news .posts-section section p {
+.news-temp .posts-section section p, .single-news .posts-section section p, .tax-news-cat .posts-section section p {
   font-size: calc(10px + 1.1vmin);
   color: #5e5e5e;
   margin-bottom: 1rem;
   line-height: 2;
 }
 
-.news-temp .posts-section section p img, .single-news .posts-section section p img {
+.news-temp .posts-section section p img, .single-news .posts-section section p img, .tax-news-cat .posts-section section p img {
   margin-bottom: 0px;
 }
 
-.news-temp .posts-section section img, .single-news .posts-section section img {
+.news-temp .posts-section section img, .single-news .posts-section section img, .tax-news-cat .posts-section section img {
   max-height: 60vh;
   max-width: 100%;
   -o-object-fit: contain;
@@ -23137,42 +23137,42 @@ body {
   margin-bottom: 2vmin;
 }
 
-.news-temp .posts-section section h1, .single-news .posts-section section h1 {
+.news-temp .posts-section section h1, .single-news .posts-section section h1, .tax-news-cat .posts-section section h1 {
   margin-top: 3vmin;
   font-size: calc(13px + 2.1vmin);
 }
 
-.news-temp .posts-section section h2, .single-news .posts-section section h2 {
+.news-temp .posts-section section h2, .single-news .posts-section section h2, .tax-news-cat .posts-section section h2 {
   margin-top: 2.9vmin;
   font-size: calc(11px + 2vmin);
 }
 
-.news-temp .posts-section section h3, .single-news .posts-section section h3 {
+.news-temp .posts-section section h3, .single-news .posts-section section h3, .tax-news-cat .posts-section section h3 {
   margin-top: 2.8vmin;
   font-size: calc(9px + 2vmin);
 }
 
-.news-temp .posts-section section h4, .single-news .posts-section section h4 {
+.news-temp .posts-section section h4, .single-news .posts-section section h4, .tax-news-cat .posts-section section h4 {
   margin-top: 2.4vmin;
   font-size: calc(7px + 2vmin);
 }
 
-.news-temp .posts-section section h5, .single-news .posts-section section h5 {
+.news-temp .posts-section section h5, .single-news .posts-section section h5, .tax-news-cat .posts-section section h5 {
   margin-top: 2vmin;
   font-size: calc(5px + 2vmin);
 }
 
-.news-temp .posts-section section h6, .single-news .posts-section section h6 {
+.news-temp .posts-section section h6, .single-news .posts-section section h6, .tax-news-cat .posts-section section h6 {
   margin-top: 1.6min;
   font-size: calc(3px + 2vmin);
 }
 
-.news-temp .posts-section section .title, .single-news .posts-section section .title {
+.news-temp .posts-section section .title, .single-news .posts-section section .title, .tax-news-cat .posts-section section .title {
   font-weight: bold;
   margin-bottom: 1vmin;
 }
 
-.news-temp .posts-section section ul li, .single-news .posts-section section ul li {
+.news-temp .posts-section section ul li, .single-news .posts-section section ul li, .tax-news-cat .posts-section section ul li {
   font-size: calc(10px + 1.1vmin);
   color: #5e5e5e;
   margin-bottom: 1rem;
@@ -23180,7 +23180,7 @@ body {
   margin-bottom: 1vmin;
 }
 
-.news-temp .posts-section section ol li, .single-news .posts-section section ol li {
+.news-temp .posts-section section ol li, .single-news .posts-section section ol li, .tax-news-cat .posts-section section ol li {
   font-size: calc(10px + 1.1vmin);
   color: #5e5e5e;
   margin-bottom: 1rem;
@@ -23188,16 +23188,16 @@ body {
   margin-bottom: 1vmin;
 }
 
-.news-temp .posts-section section *:not(.post-tags) a, .single-news .posts-section section *:not(.post-tags) a {
+.news-temp .posts-section section *:not(.post-tags) a, .single-news .posts-section section *:not(.post-tags) a, .tax-news-cat .posts-section section *:not(.post-tags) a {
   text-decoration: underline;
 }
 
-.news-temp .posts-section section *:not(.post-tags) a:hover, .single-news .posts-section section *:not(.post-tags) a:hover {
+.news-temp .posts-section section *:not(.post-tags) a:hover, .single-news .posts-section section *:not(.post-tags) a:hover, .tax-news-cat .posts-section section *:not(.post-tags) a:hover {
   color: var(--primary);
   text-decoration: none;
 }
 
-.news-temp .posts-section section .title-header, .single-news .posts-section section .title-header {
+.news-temp .posts-section section .title-header, .single-news .posts-section section .title-header, .tax-news-cat .posts-section section .title-header {
   text-transform: uppercase;
   font-family: "Raleway";
   font-size: calc(15px + 1vmin);
@@ -23208,16 +23208,16 @@ body {
   border-bottom: 1px solid hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) * 0.8));
 }
 
-.news-temp .posts-section section .news-card-wrapper, .single-news .posts-section section .news-card-wrapper {
+.news-temp .posts-section section .news-card-wrapper, .single-news .posts-section section .news-card-wrapper, .tax-news-cat .posts-section section .news-card-wrapper {
   background: var(--color-base-primary);
 }
 
-.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper {
+.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper {
   /* padding: calc(10px + 1vmin) 0; */
   padding: 2vmin;
 }
 
-.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title {
+.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title {
   color: var(--secondary);
   font-size: calc(10px + 1.5vmin);
   font-family: "Spectral";
@@ -23230,22 +23230,22 @@ body {
   margin: 1.5vmin 0 0 0;
 }
 
-.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a {
+.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a {
   color: #000;
   text-decoration: none;
 }
 
-.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a:hover, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a:hover {
+.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a:hover, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a:hover, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a:hover {
   color: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) * 0.8));
   text-decoration: none;
 }
 
-.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .date, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .date {
+.news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .date, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .date, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .date {
   opacity: 0.5;
   font-size: calc(6px + 1.5vmin);
 }
 
-.news-temp .posts-section section .news-card-wrapper .blog-img-card img, .single-news .posts-section section .news-card-wrapper .blog-img-card img {
+.news-temp .posts-section section .news-card-wrapper .blog-img-card img, .single-news .posts-section section .news-card-wrapper .blog-img-card img, .tax-news-cat .posts-section section .news-card-wrapper .blog-img-card img {
   width: 100%;
   height: 164px;
   -o-object-fit: cover;
@@ -23483,12 +23483,6 @@ header form button i {
 .single *:not(.post-tags) a:hover {
   color: var(--primary);
   text-decoration: none;
-}
-
-.single nav.navbar-dark {
-  background: #840002b3;
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
 }
 
 .single .blog-banner {

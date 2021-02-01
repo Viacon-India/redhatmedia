@@ -22,8 +22,7 @@ get_header();
 
                 <section class="news-banner">
                     <?php echo get_the_post_thumbnail(get_the_ID(),'singlepage-thumbnail',array('class' => 'banner-img'));
-                    ?>
-                    <p class="banner-bottom-taitel"><?php //the_title(); ?></p>          
+                    ?>       
                 </section>
                 
                     <div class="article">
