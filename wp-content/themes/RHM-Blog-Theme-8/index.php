@@ -15,6 +15,7 @@ while ( have_posts() ) : the_post(); ?>
   object-fit: cover;
   background-size: cover;
   background-position: right;'>
+  
     <div class="container">
       <div row="row">
         <div class="col-md-8">
