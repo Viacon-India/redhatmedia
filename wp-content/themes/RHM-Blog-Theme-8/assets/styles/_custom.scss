@@ -233,7 +233,6 @@ header {
             font-weight: 800;
             margin: 0px;
             padding: 3vmin 0 3vmin 0;
-            @include line-clamp(2);
         }
         .mata-section {
             border-bottom: 1px solid #cccccc4f;
