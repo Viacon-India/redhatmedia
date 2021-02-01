@@ -23112,6 +23112,10 @@ body {
   font-family: var(--primary);
 }
 
+.news-temp h1, .single-news h1, .tax-news-cat h1 {
+  float: left;
+}
+
 .news-temp .posts-section section, .single-news .posts-section section, .tax-news-cat .posts-section section {
   padding: 8vmin 0;
   width: 100%;

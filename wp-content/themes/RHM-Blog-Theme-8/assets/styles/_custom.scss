@@ -2,6 +2,9 @@
 
 
 .news-temp, .single-news, .tax-news-cat {
+    h1{
+        float: left;
+    }
     .posts-section {
         section {
             padding: 8vmin 0;
