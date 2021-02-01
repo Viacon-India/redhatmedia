@@ -11418,6 +11418,8 @@ body {
   position: relative;
   z-index: 2;
   border-radius: calc(10px + 3vmin) 0px;
+  -webkit-box-shadow: 0 5px 2vmin -5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 2vmin -5px rgba(0, 0, 0, 0.2);
 }
 
 .main .my-companies-multi-section .logo-wrapper .logo-grid-wrapper .logo-card .logo-content-card {
@@ -11433,6 +11435,8 @@ body {
   text-align: center;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  -webkit-box-shadow: 0 5px 2vmin -5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 2vmin -5px rgba(0, 0, 0, 0.2);
 }
 
 .main .my-companies-multi-section .logo-wrapper .logo-grid-wrapper .logo-card .logo-content-card .title {

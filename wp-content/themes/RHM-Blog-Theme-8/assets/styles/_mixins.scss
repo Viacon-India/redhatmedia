@@ -270,7 +270,7 @@
 }
 
 
-$color-shadow: rgba(0, 0, 0, 0.3);
+$color-shadow: rgba(0, 0, 0, 0.2);
 $color-shadow-light: rgba(61, 83, 255, 0.1);
 
 $shadow-primary-config: 0 5px 2vmin -5px;
@@ -280,18 +280,18 @@ $shadow-primary-light: $shadow-primary-config $color-shadow-light;
 $shadow-secondary: $shadow-secondary-config $color-shadow;
 $shadow-secondary-light: $shadow-secondary-config $color-shadow-light;
 
-@mixin box-shadow-primary($color: $color-primary) {
+@mixin box-shadow-primary($color: $color-shadow) {
   box-shadow: $shadow-primary-config $color;
 }
 
-@mixin box-shadow-secondary($color: $color-primary) {
+@mixin box-shadow-secondary($color: $color-shadow) {
   box-shadow: $shadow-secondary-config $color;
 }
 
-@mixin text-shadow-primary($color: $color-primary) {
+@mixin text-shadow-primary($color: $color-shadow) {
   text-shadow: 0 1px 3vmin $color;
 }
 
-@mixin text-shadow-secondary($color: $color-primary) {
+@mixin text-shadow-secondary($color: $color-shadow) {
   text-shadow: 0 1px 3vmin $color;
 }

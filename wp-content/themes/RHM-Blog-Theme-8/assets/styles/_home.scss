@@ -254,6 +254,7 @@
             position: relative;
             z-index: 2;
             border-radius: calc(10px + 3vmin) 0px;
+            @include box-shadow-primary;
           }
 
           .logo-content-card {
@@ -268,6 +269,7 @@
             background: var(--color-base-primary);
             text-align: center;
             transition: 0.3s;
+            @include box-shadow-primary;
 
             .title {
               font-size: calc(10px + 2vmin);
