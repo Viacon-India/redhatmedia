@@ -268,3 +268,30 @@
     }
   }
 }
+
+
+$color-shadow: rgba(0, 0, 0, 0.3);
+$color-shadow-light: rgba(61, 83, 255, 0.1);
+
+$shadow-primary-config: 0 5px 2vmin -5px;
+$shadow-secondary-config: 0 7px 5vmin -7px;
+$shadow-primary: $shadow-primary-config $color-shadow;
+$shadow-primary-light: $shadow-primary-config $color-shadow-light;
+$shadow-secondary: $shadow-secondary-config $color-shadow;
+$shadow-secondary-light: $shadow-secondary-config $color-shadow-light;
+
+@mixin box-shadow-primary($color: $color-primary) {
+  box-shadow: $shadow-primary-config $color;
+}
+
+@mixin box-shadow-secondary($color: $color-primary) {
+  box-shadow: $shadow-secondary-config $color;
+}
+
+@mixin text-shadow-primary($color: $color-primary) {
+  text-shadow: 0 1px 3vmin $color;
+}
+
+@mixin text-shadow-secondary($color: $color-primary) {
+  text-shadow: 0 1px 3vmin $color;
+}
