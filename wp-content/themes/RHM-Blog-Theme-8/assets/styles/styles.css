@@ -23395,8 +23395,8 @@ header form button i {
   display: flex;
   border-radius: 50%;
   color: #000;
-  min-width: calc(20px + 1vmin);
-  min-height: calc(20px + 1vmin);
+  min-width: calc(20px + 1vmin) !important;
+  height: calc(20px + 1vmin) !important;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

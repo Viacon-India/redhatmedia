@@ -188,8 +188,8 @@ header {
                 display: flex;
                 border-radius: 50%;
                 color: #000;
-                min-width: calc(20px + 1vmin);
-                min-height: calc(20px + 1vmin);
+                min-width: calc(20px + 1vmin) !important;
+                height: calc(20px + 1vmin) !important;
                 align-items: center;
                 justify-content: center;
             }
