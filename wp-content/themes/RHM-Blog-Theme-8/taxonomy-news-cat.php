@@ -8,12 +8,12 @@ get_header();
         <div class="container">
             <div class="row">
                 <div class="red-hat-media-blog">
-                    <div class="col-md-3">
+                    <div class="col-md-12">
                       <div class="link-wrapper mb-2 mb-md-0 ">
                           <h1><a class="link dash"><?php the_archive_title(); ?></a></h1>
                       </div>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                       <div class="text-wrappers">                
                           <p class="text"><?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?></p>                
                       </div>
