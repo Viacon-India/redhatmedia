@@ -528,7 +528,7 @@
       .link-sec-li {
         a {
           text-align: center;
-          padding: 0 calc(5px + 1vmin);
+          padding: 0 calc(5px + 1vmin)  0 0;
           text-transform: capitalize;
           color: var(--color-base-primary);
           font-size: calc(10px + 1vmin);
@@ -556,6 +556,7 @@
         font-size: calc(10px + 1vmin);
         color: var(--color-smoke);
         font-family: "Raleway";
+        line-height: 1.6;
       }
     }
     .brand-link-wrapper {
@@ -583,6 +584,7 @@
         text-transform: capitalize;
         font-family: "Spectral";
         transition: .3s;
+        line-height: 1.6;
         &:hover {
           text-decoration: none;
           color: var(--primary);
