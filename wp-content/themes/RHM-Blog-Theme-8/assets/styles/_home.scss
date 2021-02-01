@@ -479,7 +479,7 @@
           .c-text-wrapper {
             .c-text {
               font-family: "Raleway";
-              @include line-clamp(3);
+              @include line-clamp(2);
             }
           }
           .c-link-wrapper {
