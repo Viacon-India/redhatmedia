@@ -24,6 +24,7 @@
                 background: var(--color-base-primary);
                 .blog-c-card {
                     .c-card-text-wrapper {
+                        
                         .c-title-wrapper {
                             /* padding: calc(10px + 1vmin) 0; */
                             padding: 2vmin;
@@ -50,6 +51,28 @@
                             .date {
                                 opacity: 0.5;
                                 font-size: calc(6px + 1.5vmin);
+                            }
+                        }
+                    }
+                    .c-link-wrapper {
+                        padding: 0 0 2vmin 2vmin;
+                        .c-link {
+                            text-transform: uppercase;
+                            font-family: "Raleway";
+                            font-size: calc(8px + 1vmin);
+                            font-weight: 600;
+                            text-decoration: none;
+                            transition: 0.3s;
+                            &:after {
+                                content: "\f178";
+                                font-family: "FontAwesome";
+                                font-weight: 200;
+                                padding: 0 1vmin;
+                                width: 100px;
+                            }
+                            &:hover {
+                                text-decoration: underline;
+                                color: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) * 0.8));
                             }
                         }
                     }
