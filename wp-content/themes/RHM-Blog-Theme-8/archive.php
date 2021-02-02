@@ -3,8 +3,10 @@ get_header();
 
 if (function_exists('get_wp_term_image')) {
     $rhm_banner_img = get_wp_term_image(get_queried_object()->term_id);
-}  else {
-    $rhm_banner_img = get_template_directory_uri().'/assets/images/header-banner.jpg';
+
+    if(empty($rhm_banner_img)) {
+        $rhm_banner_img = get_template_directory_uri().'/assets/images/header-banner.png';
+    }
 }
 ?>
 
