@@ -11223,7 +11223,7 @@ body {
   .nav-bar-custom {
     background: var(--color-menu-back);
     z-index: 999;
-    opacity: .9;
+    opacity: 0.9;
   }
 }
 
@@ -11431,32 +11431,9 @@ body {
 
 .main .my-companies-multi-section .logo-wrapper .logo-grid-wrapper .logo-card .img-wrapper img {
   width: 100%;
+  max-width: 55px;
+  min-width: 55px;
   height: 50px;
-}
-
-.main .my-companies-multi-section .logo-wrapper .logo-grid-wrapper .logo-card .img-wrapper img:after {
-  content: "";
-}
-
-.main .my-companies-multi-section .logo-wrapper .logo-grid-wrapper .logo-card .img-wrapper {
-  position: relative;
-  overflow: hidden;
-}
-
-.main .my-companies-multi-section .logo-wrapper .logo-grid-wrapper .logo-card .img-wrapper::after {
-  content: "";
-  display: block;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: red;
-  position: absolute;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  mix-blend-mode: color;
 }
 
 .main .my-companies-multi-section .logo-wrapper .logo-grid-wrapper .logo-card .logo-content-card {
@@ -11477,9 +11454,11 @@ body {
 }
 
 .main .my-companies-multi-section .logo-wrapper .logo-grid-wrapper .logo-card .logo-content-card .title {
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1vmin);
   margin: 0;
   font-family: "Raleway";
+  font-weight: 700;
+  padding: 0 0 1vmin 0;
   text-transform: uppercase;
 }
 
@@ -11788,8 +11767,8 @@ body {
   text-transform: capitalize;
   color: var(--color-base-primary);
   font-size: calc(10px + 1vmin);
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .footer .footer-link-wrapper .link-sec .link-sec-li a:hover {
@@ -11843,8 +11822,8 @@ body {
   opacity: 0.7;
   text-transform: capitalize;
   font-family: "Spectral";
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   line-height: 1.6;
 }
 

@@ -253,11 +253,9 @@
             @include box-shadow-primary;
             img {
               width: 100%;
-              max-width: ;
+              max-width: 55px;
+              min-width: 55px;
               height: 50px;
-              &:after {
-                content: "";
-              }
             }
           }
 
