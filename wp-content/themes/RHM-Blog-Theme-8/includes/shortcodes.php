@@ -108,35 +108,33 @@ function get_popular_posts_func() {
 
 
 
-add_shortcode('get_recent_posts', 'get_recent_posts_func');
-function get_recent_posts_func() {
+add_shortcode('get_our_recent_posts', 'get_our_recent_posts_func');
+function get_our_recent_posts_func() {
   
-    $recent_args = array(
+    $recent_argss = array(
       'post_type' => 'post',
       'post_status'=>'publish', 
       'posts_per_page' => 8,
       'orderby' => 'date',
       'order'     => 'DESC',
     );
-    $recent_query = get_posts($recent_args); ?>
+    $recent_q = get_posts($recent_argss); ?>
 
-    <?php if (!empty($recent_query)) { ?>
+    <?php if (!empty($recent_q)) { ?>
 
       <div class="headr-banner-asid-contant">
         <h5 class="asid-content-title">Recent Posts</h5>
         <div class="scroll-asid">
           <ul class="asid-ul">
-            <?php foreach($recent_query as $post) { ?>
-            
+            <?php foreach($recent_q as $post) { ?>            
                 <li class="asid-li">
-                    <span class="left-span">
-                      <?php echo get_the_post_thumbnail($post->ID,'sidebar-thumbnail'); ?>
-                    </span>
-                    <a class="asid-link" href="<?php echo get_the_permalink($post->ID); ?>">                        
-                        <?php echo $post->post_title; ?>
-                    </a>
-                </li>
-              
+                  <span class="left-span">
+                    <?php echo get_the_post_thumbnail($post->ID,'sidebar-thumbnail'); ?>
+                  </span>
+                  <a class="asid-link" href="<?php echo get_the_permalink($post->ID); ?>">                        
+                      <?php echo $post->post_title; ?>
+                  </a>
+                </li>              
             <?php } ?>
           </ul>
         </div>

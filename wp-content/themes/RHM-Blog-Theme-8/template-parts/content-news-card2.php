@@ -1,6 +1,6 @@
 <div class="col-md-4">
 	<div class="news-card-wrapper">
-		<a href="<?php echo get_the_permalink(); ?>" >
+		<a href="<?php echo get_the_permalink($post->ID); ?>" >
 			<div class="blog-img-card">
 				<?php echo get_the_post_thumbnail($post->ID,'news-card-thumbnail'); ?>
 			</div>
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 			<div class="c-link-wrapper">
-				<a href="<?php echo get_the_permalink(); ?>" class="c-link">continue reading</a>
+				<a href="<?php echo get_the_permalink($post->ID); ?>" class="c-link">continue reading</a>
 			</div>
 		</div>
 	</div>

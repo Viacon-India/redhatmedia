@@ -11233,6 +11233,7 @@ body {
 
 .nav-bar-custom .navbar-nav .nav-item .nav-link {
   color: var(--color-smoke);
+  text-decoration: none;
 }
 
 .nav-bar-custom .navbar-nav .nav-item .nav-link .fa {
