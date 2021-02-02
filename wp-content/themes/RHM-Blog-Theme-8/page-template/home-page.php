@@ -66,23 +66,29 @@ foreach($myvals as $key=>$val) {
       if(!empty($rhm_frontpage_brand_data)) {
         $hcount =0;
         $total_brand = count($rhm_frontpage_brand_data);
-        foreach($rhm_frontpage_brand_data as $key=>$data) {
+        $key = 1;
+        foreach($rhm_frontpage_brand_data as $key_val=>$data) {
 
           
-        if($key==0 || $key%8 == 0) {
+        if($key==1 || $key == 9 || $key == 17) {
            ?>
 
           <div class="my-companies_wrapper">
             <div class="col-md-3">
               <div class="link-wrapper mb-3 mb-md-0">
                 <a class="link dash">
-                  <?php echo $rhm_frontpage_brand_heading_data[$hcount]['heading']; ?>
+                  <?php if(!empty($rhm_frontpage_brand_heading_data[$hcount]['heading'])) {
+                    echo $rhm_frontpage_brand_heading_data[$hcount]['heading'];
+                  } ?>
                 </a>
               </div>
             </div>
             <div class="col-md-9">
               <div class="caption-text-wrapper">
-                <p class="text"><?php echo $rhm_frontpage_brand_heading_data[$hcount]['desc']; ?>
+                <p class="text">
+                  <?php if(!empty($rhm_frontpage_brand_heading_data[$hcount]['desc'])) {
+                    echo $rhm_frontpage_brand_heading_data[$hcount]['desc'];
+                  } ?>
                 </p>
               </div>
             </div>
@@ -95,27 +101,27 @@ foreach($myvals as $key=>$val) {
               <?php $hcount++;
               } ?>
 
-                <a href="<?php echo $data['link']; ?>" class="logo-card <?php echo $key; ?>" target="_blank">
+                <a href="<?php if(!empty($data['link'])) { echo $data['link']; } ?>" class="logo-card <?php echo $key; ?>" target="_blank">
                   <div class="img-wrapper">
-                    <img src="<?php echo $data['img']; ?>" alt="<?php echo $data['name']; ?>">
+                    <img src="<?php if(!empty($data['img'])) { echo $data['img']; } ?>" alt="<?php if(!empty($data['name'])) { echo $data['name']; } ?>">
                   </div>
                   <div class="logo-content-card">
-                    <h2 class="title"><?php echo $data['name']; ?></h2>
+                    <h2 class="title"><?php if(!empty($data['name'])) { echo $data['name']; } ?></h2>
                     <p class="c-content">
-                      <?php echo $data['desc']; ?>
+                      <?php if(!empty($data['desc'])) { echo $data['desc']; } ?>
                     </p>
                   </div>
                 </a>
 
-                <?php if($key>0 && $key%7 == 0 || $key == $total_brand-1) { ?>
+                <?php if($key>1 && $key%8  == 0 || $key == $total_brand) { ?>
               </div>
             </div>
           </div>
           <?php } ?>
 
 
-      <?php }
-      } ?>
+        <?php $key++; }
+        } ?>
 
         
           <div class="col-md-12">
