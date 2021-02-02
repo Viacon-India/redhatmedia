@@ -2,7 +2,12 @@
 /*Template Name: News Temp */
 get_header();
 $current_page_ID = get_the_ID();
-$posts_per_page = 8;
+$posts_per_page = 9;
+
+$google_cat_ID = 11;
+$digital_cat_ID = 10;
+$social_cat_ID = 12;
+
 
 
 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
@@ -36,7 +41,7 @@ $google_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news',
     array(
       'taxonomy' => 'news-cat',
       'field' => 'term_id',
-      'terms' => 11
+      'terms' => $google_cat_ID
       )
     )
   )
@@ -46,7 +51,7 @@ $digital_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news',
     array(
       'taxonomy' => 'news-cat',
       'field' => 'term_id',
-      'terms' => 10
+      'terms' => $digital_cat_ID
       )
     )
   )
@@ -56,7 +61,7 @@ $social_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news',
     array(
       'taxonomy' => 'news-cat',
       'field' => 'term_id',
-      'terms' => 12
+      'terms' => $social_cat_ID
       )
     )
   )
@@ -93,28 +98,7 @@ $categories = get_terms( 'news-cat', array(
 
   <main class="news-temp">
     <section class="news-header">
-        <div class="container">
-            <div class="row">
-              <div class="col">
-                  <h2 class="title-header">
-                      News
-                  </h2>
-              </div>
-            </div>
-            <div class="col">
-              <div class="title-link">
-                <?php
-                if ( ! empty( $categories ) ) {
-                  foreach($categories as $cat) { ?>                  
-                    <a class="link" href="<?php echo get_term_link($cat); ?>">
-                      <?php echo $cat->name; ?>
-                    </a>
-                  <?php }
-                } ?>
-
-              </div>
-            </div>
-        </div>
+        
 
         <?php if (!empty($popular_query)) { ?>
         <section class="slider-sec">
@@ -153,6 +137,22 @@ $categories = get_terms( 'news-cat', array(
         <?php } ?>
 
         <div class="container">
+          <div class="col">
+            <div class="title-link">
+              <?php
+              if ( ! empty( $categories ) ) {
+                foreach($categories as $cat) { ?>                  
+                  <a class="link" href="<?php echo get_term_link($cat); ?>">
+                    <?php echo $cat->name; ?>
+                  </a>
+                <?php }
+              } ?>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
 
             <!---------------------------- News BLOG ------------------------------->      
             <div class="row posts-section">
@@ -160,7 +160,9 @@ $categories = get_terms( 'news-cat', array(
                                   
               <?php if ( !empty($google_arr) ) { ?>
                 <section class="news-blog">
-                  <h2 class="title-header"> Google</h2>
+                  <div class="link-wrapper mb-2 mb-md-0 ">
+                    <h2><a class="link dash"><span>Google</span></a></h2>
+                  </div>
                   <div class="row">
                     <?php foreach($google_arr as $post) {
                       get_template_part( 'template-parts/content', 'news-card1' );
@@ -172,8 +174,10 @@ $categories = get_terms( 'news-cat', array(
 
                                   
               <?php if ( !empty($digital_arr) ) { ?>
-                <section class="news-blog">                  
-                    <h2 class="title-header"> Digital Marketing</h2>
+                <section class="news-blog">
+                  <div class="link-wrapper mb-2 mb-md-0 ">
+                    <h2><a class="link dash"><span>Digital Marketing</span></a></h2>
+                  </div>
                   <div class="row">
                     <?php foreach($digital_arr as $post) {
                         get_template_part( 'template-parts/content', 'news-card1' );
@@ -184,7 +188,9 @@ $categories = get_terms( 'news-cat', array(
                                   
               <?php if ( !empty($social_arr) ) { ?>
                 <section class="news-blog">
-                  <h2 class="title-header"> Social Media</h2>
+                  <div class="link-wrapper mb-2 mb-md-0 ">
+                      <h2><a class="link dash"><span>Social Media</span></a></h2>
+                  </div>
                   <div class="row">
                     <?php foreach($social_arr as $post) {
                       get_template_part( 'template-parts/content', 'news-card1' );
@@ -195,7 +201,9 @@ $categories = get_terms( 'news-cat', array(
 
               <!---------------------------- Recent News -------------------------------> 
               <section class="recent-news">
-                <h2 class="title-header"> Recent Posts</h2>
+                <div class="link-wrapper mb-2 mb-md-0 ">
+                    <h2><a class="link dash"><span>Recent Posts</span></a></h2>
+                </div>
                 <div class="row">                    
                   <?php if ( $blog_query->have_posts() ) :  
 

@@ -65,6 +65,7 @@
     $('#menu-header-menu li a').addClass('nav-link');
 
     $('footer .link-sec li').addClass('link-sec-li');
+    $('.taxonomy-description p').addClass('text');
     //$('.footer-about-text-wrapper').wrapInner('<p class="text"></p>');
   })
 </script>

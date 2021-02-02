@@ -1,26 +1,40 @@
 <?php
 get_header();
+
+if (function_exists('get_wp_term_image')) {
+    $rhm_banner_img = get_wp_term_image(get_queried_object()->term_id);
+}  else {
+    $rhm_banner_img = get_template_directory_uri().'/assets/images/header-banner.jpg';
+}
 ?>
 
 
 
+<?php if(!empty($rhm_banner_img)) { ?>
+  <!-- start banner/Header -->
+  <header class="header">
+  <img src="<?php echo $rhm_banner_img; ?>" alt="archive-banner">
+    <div class="container">
+      <div row="row">
+        <div class="col-md-8">
+          <div class="header-title-warper">
+            <h1 class="title">
+              <?php the_archive_title(); ?>
+            </h1>
+          </div>
+          <div class="header-text-warper">            
+            <?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?>
+          </div>
+        </div>          
+      </div>
+    </div>
+  </header>
+<?php } ?>
 
 <main class="main">
     <section class="blog">
         <div class="container">
             <div class="row">
-                <div class="red-hat-media-blog">
-                    <div class="col-md-3">
-                      <div class="link-wrapper mb-2 mb-md-0 ">
-                          <h1><a class="link dash"><?php the_archive_title(); ?></a></h1>
-                      </div>
-                    </div>
-                    <div class="col-md-10">
-                      <div class="text-wrappers">                
-                          <p class="text"><?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?></p>                
-                      </div>
-                    </div>
-                </div>
 
                 <div class="col-md-9">
                   <div class="row">

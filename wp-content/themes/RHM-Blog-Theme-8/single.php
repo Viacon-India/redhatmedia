@@ -66,7 +66,17 @@ get_header();
 					
                         <!-- <section class="socil-link">
                         </section> -->
+                        <div class="tag-list">
+                            <?php
+                            $tag_list = get_the_tag_list('<ul><li>', '</li><li>', '</li></ul>');
+
+                            if ($tag_list && !is_wp_error($tag_list)) {
+                                echo $tag_list;
+                            }
+                            ?>
+                        </div>
                     </div>
+                    
                     <div class="article">
                         <div class="author-sec">
                             <div class="row">
@@ -91,6 +101,7 @@ get_header();
                         </div>
                     
                     </div>
+                    
                     <div class="article">
 
                         <section class="single-post-blog">

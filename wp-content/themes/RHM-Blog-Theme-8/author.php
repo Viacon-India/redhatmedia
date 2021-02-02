@@ -5,30 +5,42 @@ $author_fname = get_the_author_meta('first_name', $author_id);
 $author_lname = get_the_author_meta('last_name', $author_id);
 
 
+$rhm_banner_img = get_template_directory_uri().'/assets/images/header-banner.png';
 ?>
+
+
+
+<?php if(!empty($rhm_banner_img)) { ?>
+  <!-- start banner/Header -->
+  <header class="header">
+  <img src="<?php echo $rhm_banner_img; ?>" alt="author-banner">
+    <div class="container">
+      <div row="row">
+        <div class="col-md-8">
+          <div class="header-title-warper avtar-sec">            
+            <img src="<?php print get_avatar_url($author_id); ?>" class="avtar-img"/>       
+            <h1 class="title">
+              <?php if (!empty($author_fname)) {
+                  echo ' Author: '.$author_fname . ' ' . $author_lname;
+              } else {
+                  echo ' Author: '.get_the_author();
+              } ?>
+            </h1>
+          </div>
+          <div class="header-text-warper">              
+            <?php the_archive_description( '<p class="text">', '</p>' ); ?>
+          </div>
+        </div>          
+      </div>
+    </div>
+  </header>
+<?php } ?>
+
 
 <main class="main">
     <section class="blog">
         <div class="container">
             <div class="row">
-                <div class="red-hat-media-blog">
-                    <div class="col-md-3">
-                      <div class="link-wrapper mb-2 mb-md-0 ">
-                          <h1><a class="link dash">
-                            <?php if (!empty($author_fname)) {
-                                echo ' Author: '.$author_fname . ' ' . $author_lname;
-                            } else {
-                                echo ' Author: '.get_the_author();
-                            } ?>
-                          </a></h1>
-                      </div>
-                    </div>
-                    <div class="col-md-10">
-                      <div class="text-wrappers">                
-                          <p class="text"><?php the_archive_description( '<div class="taxonomy-description">', '</div>' ); ?></p>                
-                      </div>
-                    </div>
-                </div>
 
                 <div class="col-md-9">
                   <div class="row">

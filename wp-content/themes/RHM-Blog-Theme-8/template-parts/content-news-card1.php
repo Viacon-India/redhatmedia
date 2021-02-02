@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-4">
 	<div class="news-card-wrapper">
 		<a href="<?php echo get_the_permalink($post->ID); ?>" >
 			<div class="blog-img-card">

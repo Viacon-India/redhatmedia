@@ -11288,6 +11288,17 @@ body {
   font-family: "Raleway";
 }
 
+.header .avtar-sec {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header .avtar-sec img {
+  width: 6vmin;
+  height: 6vmin;
+}
+
 .header .header-link-warper .link {
   color: var(--primary);
   text-transform: uppercase;
@@ -23221,6 +23232,15 @@ body {
   text-decoration: none;
 }
 
+.news-temp .posts-section section .link-wrapper .link, .single-news .posts-section section .link-wrapper .link, .tax-news-cat .posts-section section .link-wrapper .link {
+  color: var(--primary);
+  text-transform: uppercase;
+  position: relative;
+  font-size: calc(12px + 1vmin);
+  font-family: "Raleway";
+  font-weight: 600;
+}
+
 .news-temp .posts-section section .title-header, .single-news .posts-section section .title-header, .tax-news-cat .posts-section section .title-header {
   text-transform: uppercase;
   font-family: "Raleway";
@@ -23234,7 +23254,7 @@ body {
 
 .news-temp .posts-section section .news-card-wrapper, .single-news .posts-section section .news-card-wrapper, .tax-news-cat .posts-section section .news-card-wrapper {
   background: var(--color-base-primary);
-  border-radius: calc(20px + 3vmin) 0;
+  border-radius: calc(10px + 3vmin) 0;
   overflow: hidden;
   margin: 1rem 0;
 }
@@ -23246,7 +23266,7 @@ body {
 
 .news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title {
   color: var(--secondary);
-  font-size: calc(10px + 1.5vmin);
+  font-size: calc(7px + 1.5vmin);
   font-family: "Spectral";
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -23254,7 +23274,8 @@ body {
   overflow: hidden;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  margin: 1.5vmin 0 0 0;
+  margin: 0;
+  padding-top: 2vmin;
 }
 
 .news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .c-title a {
@@ -23269,7 +23290,7 @@ body {
 
 .news-temp .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .date, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .date, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-card-text-wrapper .c-title-wrapper .date {
   opacity: 0.5;
-  font-size: calc(6px + 1.5vmin);
+  font-size: calc(6px + 1vmin);
 }
 
 .news-temp .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper {
@@ -23279,7 +23300,7 @@ body {
 .news-temp .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link, .single-news .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link, .tax-news-cat .posts-section section .news-card-wrapper .blog-c-card .c-link-wrapper .c-link {
   text-transform: uppercase;
   font-family: "Raleway";
-  font-size: calc(8px + 1vmin);
+  font-size: calc(5px + 1.28vmin);
   font-weight: 600;
   text-decoration: none;
   -webkit-transition: 0.3s;
@@ -23703,6 +23724,46 @@ header form button i {
      object-fit: contain;
   height: auto;
   margin-bottom: 2vmin;
+}
+
+.single .article .tag-list {
+  text-align: left;
+  position: relative;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+.single .article .tag-list ul {
+  padding: 0;
+}
+
+.single .article .tag-list ul li {
+  display: inline-block;
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+  margin-bottom: 7px;
+  margin-right: 10px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.single .article .tag-list ul li a {
+  display: block;
+  color: #a3a5a7;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 7px 10px;
+  border: 1px solid #ddd;
+  padding: 4px 7px;
+  font-size: 8px;
+  text-decoration: none;
+}
+
+.single .article .tag-list ul li a:hover {
+  color: var(--primary) !important;
 }
 
 .single .article .author-sec .author-name {

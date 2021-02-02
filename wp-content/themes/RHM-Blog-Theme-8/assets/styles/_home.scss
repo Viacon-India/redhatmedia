@@ -124,7 +124,7 @@
   
 
   .header-title-warper {
-    padding: 4rem 0 0 0;
+    padding: 4rem 0 0 0;    
     .title {
       color: var(--color-smoke);
       font-family: "FontAwesome";
@@ -135,6 +135,13 @@
     .text {
       color: var(--color-smoke);
       font-family: "Raleway";
+    }
+  }
+  .avtar-sec {
+    display: flex;
+    img {
+      width: 6vmin;
+      height: 6vmin;
     }
   }
   .header-link-warper {
