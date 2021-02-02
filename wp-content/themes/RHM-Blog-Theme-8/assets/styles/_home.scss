@@ -253,6 +253,7 @@
             @include box-shadow-primary;
             img {
               width: 100%;
+              max-width: ;
               height: 50px;
               &:after {
                 content: "";
@@ -260,23 +261,23 @@
             }
           }
 
-          .img-wrapper {
-            position: relative;
-            overflow: hidden;
-          }
+          // .img-wrapper {
+          //   position: relative;
+          //   overflow: hidden;
+          // }
 
-          .img-wrapper::after {
-            content: "";
-            display: block;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: red;
-            position: absolute;
-            user-select: none;
-            mix-blend-mode: color;
-          }
+          // .img-wrapper::after {
+          //   content: "";
+          //   display: block;
+          //   top: 0;
+          //   left: 0;
+          //   width: 100%;
+          //   height: 100%;
+          //   background: red;
+          //   position: absolute;
+          //   user-select: none;
+          //   mix-blend-mode: color;
+          // }
 
           .logo-content-card {
             position: absolute;
@@ -293,9 +294,11 @@
             @include box-shadow-primary;
 
             .title {
-              font-size: calc(10px + 2vmin);
+              font-size: calc(10px + 1vmin);
               margin: 0;
               font-family: "Raleway";
+              font-weight: 700;
+              padding: 0 0 1vmin 0;
               text-transform: uppercase;
             }
             .c-content {
