@@ -23179,7 +23179,7 @@ body {
 
 .news-header .news-title-sec .news-title-c-warper .title-card {
   position: relative;
-  height: calc(100px + 10vmin);
+  height: calc(150px + 10vmin);
   overflow: hidden;
   display: block;
 }
