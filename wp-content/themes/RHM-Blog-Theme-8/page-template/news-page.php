@@ -136,21 +136,22 @@ $categories = get_terms( 'news-cat', array(
         </section>
         <?php } ?>
 
+      <section class="news-title-card">
         <div class="container">
-          <div class="col">
-            <div class="title-link">
-              <?php
-              if ( ! empty( $categories ) ) {
-                foreach($categories as $cat) { ?>                  
-                  <a class="link" href="<?php echo get_term_link($cat); ?>">
-                    <?php echo $cat->name; ?>
-                  </a>
-                <?php }
-              } ?>
-
+          <div class="row">
+            <div class="col">
+              <div class="news-title-c-warper">
+                <a class="title-card" href="">\
+                  <img src="" alt="">
+                  
+                </a>
+                <a class="title-card" href="">fgbhfgb</a>
+                <a class="title-card" href="">fgbfgb</a>
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
         <div class="container">
 

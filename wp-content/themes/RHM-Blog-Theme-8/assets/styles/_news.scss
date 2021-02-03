@@ -1,3 +1,5 @@
+@import "./common";
+
 // ? just for remembering
 // font family name Raleway, Spectral
 .news-header {
@@ -106,6 +108,24 @@
   
     }
   }
+
+  .news-title-card{
+    padding: 5vmin 0;
+    width: 100%;
+    .news-title-c-warper{
+      @include grid-columns(calc(160px + 5vmax), 1.5rem, auto-fit);
+      .title-card{
+        background-color: Var(--primary) ;
+        opacity: .5;
+        position: relative;
+
+      }
+  
+    }
+  }
+
+
+
 
 
 }
