@@ -160,7 +160,7 @@ $categories = get_terms( 'news-cat', array(
                                   
               <?php if ( !empty($google_arr) ) { ?>
                 <section class="news-blog">
-                  <div class="link-wrapper mb-2 mb-md-0 ">
+                  <div class="link-wrapper pl-5 mb-2 mb ">
                     <h2><a class="link dash"><span>Google</span></a></h2>
                   </div>
                   <div class="row">
@@ -175,7 +175,7 @@ $categories = get_terms( 'news-cat', array(
                                   
               <?php if ( !empty($digital_arr) ) { ?>
                 <section class="news-blog">
-                  <div class="link-wrapper mb-2 mb-md-0 ">
+                  <div class="link-wrapper pl-5 mb-2 mb ">
                     <h2><a class="link dash"><span>Digital Marketing</span></a></h2>
                   </div>
                   <div class="row">
@@ -188,7 +188,7 @@ $categories = get_terms( 'news-cat', array(
                                   
               <?php if ( !empty($social_arr) ) { ?>
                 <section class="news-blog">
-                  <div class="link-wrapper mb-2 mb-md-0 ">
+                  <div class="link-wrapper pl-5 mb-2 mb ">
                       <h2><a class="link dash"><span>Social Media</span></a></h2>
                   </div>
                   <div class="row">
@@ -201,7 +201,7 @@ $categories = get_terms( 'news-cat', array(
 
               <!---------------------------- Recent News -------------------------------> 
               <section class="recent-news">
-                <div class="link-wrapper mb-2 mb-md-0 ">
+                <div class="link-wrapper pl-5 mb-2 mb ">
                     <h2><a class="link dash"><span>Recent Posts</span></a></h2>
                 </div>
                 <div class="row">                    
