@@ -193,7 +193,7 @@ header {
                     font-size: calc(4px + 2vmin);
                     margin-left: 10px;                    
                     float: left;
-                    text-decoration: none;
+                    text-decoration: none !important;
                     line-height: normal;
                     @include line-clamp(2);
                 }           

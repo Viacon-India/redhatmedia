@@ -23203,7 +23203,7 @@ body {
   padding: 2vmin;
   display: block;
   top: 50%;
-  color: var(--secondary);
+  color: var(--color-base-primary);
   font-size: calc(10px + 2vmin);
   font-family: "Raleway";
   font-weight: 500;
@@ -23211,6 +23211,19 @@ body {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   margin: 0;
+}
+
+.news-header .news-title-sec .news-title-c-warper .title-card .c-title:before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: var(--secondary);
+  opacity: 0.5;
 }
 
 :root {
@@ -34684,7 +34697,7 @@ header form button i {
   font-size: calc(4px + 2vmin);
   margin-left: 10px;
   float: left;
-  text-decoration: none;
+  text-decoration: none !important;
   line-height: normal;
   display: -webkit-box;
   -webkit-line-clamp: 2;
