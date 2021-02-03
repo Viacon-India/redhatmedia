@@ -10,8 +10,6 @@ if (function_exists('get_wp_term_image')) {
 }
 ?>
 
-
-
 <?php if(!empty($rhm_banner_img)) { ?>
   <!-- start banner/Header -->
   <header class="header">

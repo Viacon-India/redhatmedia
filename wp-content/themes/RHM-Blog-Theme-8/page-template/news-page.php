@@ -10,24 +10,25 @@ $social_cat_ID = 12;
 
 
 
-$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
-$blog_array = array( 'post_type' => 'news',
-    'post_status'=>'publish', 
-    'posts_per_page' => $posts_per_page,
-    'paged' => $paged,
-    'order'     => 'DESC',
-    'orderby'   => 'date',
+$paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+$blog_array = array(
+  'post_type' => 'news',
+  'post_status' => 'publish',
+  'posts_per_page' => $posts_per_page,
+  'paged' => $paged,
+  'order'     => 'DESC',
+  'orderby'   => 'date',
 );
 $blog_query = new WP_Query($blog_array);
 
 $myvals = get_post_meta($current_page_ID);
-foreach($myvals as $key=>$val) {    
-    ${$key} = unserialize($val[0]) ? unserialize($val[0]) : $val[0];
+foreach ($myvals as $key => $val) {
+  ${$key} = unserialize($val[0]) ? unserialize($val[0]) : $val[0];
 }
 
 $popular_args = array(
   'post_type' => 'news',
-  'post_status'=>'publish', 
+  'post_status' => 'publish',
   'posts_per_page' => 8,
   'order'     => 'DESC',
   'meta_key' => 'post_views_count',
@@ -36,63 +37,69 @@ $popular_args = array(
 $popular_query = get_posts($popular_args);
 
 
-$google_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news', 
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'news-cat',
-      'field' => 'term_id',
-      'terms' => $google_cat_ID
+$google_arr = get_posts(
+  array(
+    'posts_per_page' => 4, 'post_type' => 'news',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'news-cat',
+        'field' => 'term_id',
+        'terms' => $google_cat_ID
       )
     )
   )
 );
-$digital_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news', 
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'news-cat',
-      'field' => 'term_id',
-      'terms' => $digital_cat_ID
+$digital_arr = get_posts(
+  array(
+    'posts_per_page' => 4, 'post_type' => 'news',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'news-cat',
+        'field' => 'term_id',
+        'terms' => $digital_cat_ID
       )
     )
   )
 );
-$social_arr = get_posts(array('posts_per_page' => 4, 'post_type' => 'news', 
-  'tax_query' => array(
-    array(
-      'taxonomy' => 'news-cat',
-      'field' => 'term_id',
-      'terms' => $social_cat_ID
+$social_arr = get_posts(
+  array(
+    'posts_per_page' => 4, 'post_type' => 'news',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'news-cat',
+        'field' => 'term_id',
+        'terms' => $social_cat_ID
       )
     )
   )
 );
 
-$categories = get_terms( 'news-cat', array(
+$categories = get_terms('news-cat', array(
   'hide_empty' => false,
-) );
+));
 ?>
 
 
-  <?php if(!empty($rhm_banner_img)) { ?>
-    <!-- start banner/Header -->
-    <header class="header">
+<?php if(!empty($rhm_banner_img)) { ?>
+  <!-- start banner/Header -->
+  <header class="header">
     <img src="<?php echo $rhm_banner_img; ?>" alt="service-banner">
-      <div class="container">
-        <div row="row">
-          <div class="col-md-8">
-            <div class="header-title-warper">
-              <h1 class="title">
-                <?php if(!empty($rhm_banner_heading)) { echo $rhm_banner_heading; } ?>
-              </h1>
-            </div>
-            <div class="header-text-warper">            
-            <?php if(!empty($rhm_banner_content)) { echo $rhm_banner_content; } ?>
-            </div>
-          </div>          
-        </div>
+    <div class="container">
+      <div row="row">
+        <div class="col-md-8">
+          <div class="header-title-warper">
+            <h1 class="title">
+              <?php if(!empty($rhm_banner_heading)) { echo $rhm_banner_heading; } ?>
+            </h1>
+          </div>
+          <div class="header-text-warper">            
+          <?php if(!empty($rhm_banner_content)) { echo $rhm_banner_content; } ?>
+          </div>
+        </div>          
       </div>
-    </header>
-  <?php } ?>
+    </div>
+  </header>
+<?php } ?>
 
 
 
@@ -136,19 +143,39 @@ $categories = get_terms( 'news-cat', array(
         </section>
         <?php } ?>
 
-        <section class="news-title-card">
+        
+
+        <section class="news-title-sec">
           <div class="container">
             <div class="row">
               <div class="col">
-                <div class="news-title-c-warper">
-                  <a class="title-card" href="">\
-                    <img src="" alt="">
-                    
-                  </a>
-                  <a class="title-card" href="">fgbhfgb</a>
-                  <a class="title-card" href="">fgbfgb</a>
+                <div class="category-swiper-container">
+                  <div class="news-title-c-warper swiper-wrapper">
+
+                    <?php if ( ! empty( $categories ) ) {
+                      foreach($categories as $cat) {
+                        
+                        if (function_exists('get_wp_term_image')) {
+                          $news_cat_img = get_wp_term_image($cat->term_id);                      
+                            if(empty($news_cat_img)) {
+                                $news_cat_img = get_template_directory_uri().'/assets/images/header-banner.png';
+                            }
+                        }?>
+
+                        <div class="swiper-slide">
+                          <a class="title-card " href="<?php echo get_term_link($cat); ?>">
+                            <h2 class="c-title"><?php echo $cat->name; ?></h2>
+                            <img class="c-img" src="<?php echo $news_cat_img; ?>" alt="<?php echo $cat->name; ?>">
+                          </a>
+                        </div>
+                      <?php }
+                    } ?>
+
+                  </div>
+                  <div class="swiper-pagination"></div>
                 </div>
               </div>
+              <!-- test hare -->
             </div>
           </div>
         </section>
@@ -156,7 +183,8 @@ $categories = get_terms( 'news-cat', array(
         <div class="container">
 
             <!---------------------------- News BLOG ------------------------------->      
-            <div class="row posts-section">             
+            <div class="row posts-section">
+              
                                   
               <?php if ( !empty($google_arr) ) { ?>
                 <section class="news-blog">
@@ -169,10 +197,8 @@ $categories = get_terms( 'news-cat', array(
                     } ?>
                   </div>
                 </section>
-              <?php } ?>                  
-              
-
-                                  
+              <?php } ?>
+                        
               <?php if ( !empty($digital_arr) ) { ?>
                 <section class="news-blog">
                   <div class="link-wrapper pl-5 mb-2 mb ">
@@ -252,25 +278,34 @@ $categories = get_terms( 'news-cat', array(
     </section>      
   </main>
 
-  
-  
+
+
 <?php
 get_footer(); ?>
 
 <script>
   var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 4,
-      direction: getDirection(),
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
+    slidesPerView: 4,
+    direction: getDirection(),
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 
-    function getDirection() {
-      var windowWidth = window.innerWidth;
-      var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+  function getDirection() {
+    var windowWidth = window.innerWidth;
+    var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
 
-      return direction;
-    }
+    return direction;
+  }
+  
+  var swiper = new Swiper('.category-swiper-container', {
+    slidesPerView: 3,
+    spaceBetween: 30,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  });
 </script>

@@ -10,125 +10,141 @@
     text-align: center;
     color: var(--secondary);
   }
-  .title-link{
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: center;
-      padding: calc(10px + 1vmin ) 0 calc(10px + 3vmin ) 0 ;
-      .link{
-          color: var(--secondary);
-          padding: 0 calc(5px + 1vmin);
-          transition: .3s;
-          text-decoration: none;
-          font-family: 'Raleway';
-          &:hover{
-              color: var(--primary);
-          }
+  .title-link {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    padding: calc(10px + 1vmin) 0 calc(10px + 3vmin) 0;
+    .link {
+      color: var(--secondary);
+      padding: 0 calc(5px + 1vmin);
+      transition: 0.3s;
+      text-decoration: none;
+      font-family: "Raleway";
+      &:hover {
+        color: var(--primary);
       }
-
+    }
   }
-  
-  .slider-sec{
+
+  .slider-sec {
     background: var(--color-base-primary);
     width: 100%;
     padding: calc(10px + 2vmin);
-    .barking{
-      padding:calc(3px + .7vmin) calc(10px + 2vmin);
+    .barking {
+      padding: calc(3px + 0.7vmin) calc(10px + 2vmin);
       margin-bottom: calc(6px + 1vmin);
       margin-left: calc(6px + 1vmin);
       background: var(--primary);
       text-transform: uppercase;
-      font-family: 'Raleway';
+      font-family: "Raleway";
       font-size: calc(5px + 1vmin);
       font-weight: 400;
       color: var(--color-base-primary);
       display: inline-block;
     }
-    .swiper-custom-container{
+    .swiper-custom-container {
       position: relative;
-      .swiper-button-prev{
-        left:-12vmin !important;
+      .swiper-button-prev {
+        left: -12vmin !important;
         position: absolute;
-        &:after{
+        &:after {
           font-size: calc(10px + 2vmin) !important;
           color: var(--secondary);
         }
       }
-  
-      .swiper-button-next{
-        right:-12vmin !important;
+
+      .swiper-button-next {
+        right: -12vmin !important;
         position: absolute;
-        &:after{
+        &:after {
           font-size: calc(10px + 2vmin) !important;
           color: var(--secondary);
         }
       }
-  
     }
-  
+
     .swiper-container {
       width: 100%;
       height: 100%;
       background: var(--color-base-primary);
     }
-  
+
     .swiper-slide {
       font-size: calc(8px + 1vmin);
-  
+
       /* Center slide text vertically */
       display: flex;
       flex-direction: column;
       padding: 0 calc(6px + 1vmin);
-      border-right: 1px solid var(--secondary); 
-  
-      .post-date{
+      border-right: 1px solid var(--secondary);
+
+      .post-date {
         color: var(--secondary);
-        font-family: 'Raleway';
+        font-family: "Raleway";
         display: block;
         width: 100%;
         text-transform: capitalize;
         margin-bottom: 0px;
         padding-bottom: 1vmin;
-        opacity: .5;
+        opacity: 0.5;
       }
-  
-      a{
+
+      a {
         width: 100%;
         color: var(--secondary);
         @include line-clamp(2);
         text-align: left;
-        font-family: 'Spectral';
+        font-family: "Spectral";
         font-size: calc(10px + 1vmin);
         &:hover {
           text-decoration: none;
         }
       }
-  
-  
     }
   }
 
-  .news-title-card{
+  .news-title-sec {
     padding: 5vmin 0;
     width: 100%;
-    .news-title-c-warper{
-      @include grid-columns(calc(160px + 5vmax), 1.5rem, auto-fit);
-      .title-card{
-        background-color: Var(--primary) ;
-        opacity: .5;
+    .category-swiper-container{
+      overflow: hidden;
+    }
+    .news-title-c-warper {
+      // @include grid-columns(calc(160px + 5vmax), 1.5rem, auto-fit);
+      .title-card {
         position: relative;
-
+        height: calc(100px + 10vmin);
+        overflow: hidden;
+        display: block;
+        
+      
+        .c-img {
+          width: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          object-fit: cover;
+          opacity: 0.9;
+        }
+        .c-title {
+          position: absolute;
+          width: 100%;
+          z-index: 99;
+          padding: 2vmin;
+          display: block;
+          top: 50%;
+          color: var(--secondary);
+          font-size: calc(10px + 2vmin);
+          font-family: "Raleway";
+          font-weight: 500;
+          text-align: center;
+          transform: translateY(-50%);
+          margin: 0;
+        }
       }
-  
     }
   }
-
-
-
-
-
 }
-
-
-

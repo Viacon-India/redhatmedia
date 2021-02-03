@@ -20,10 +20,10 @@ get_header();
             <div class="row">
                 <div class="col-md-9 col-sm-12">
 
-                <section class="news-banner">
-                    <?php echo get_the_post_thumbnail(get_the_ID(),'single-news-thumbnail',array('class' => 'banner-img'));
-                    ?>       
-                </section>
+                    <section class="news-banner">
+                        <?php echo get_the_post_thumbnail(get_the_ID(),'single-news-thumbnail',array('class' => 'banner-img'));
+                        ?>       
+                    </section>
                 
                     <div class="article">
 

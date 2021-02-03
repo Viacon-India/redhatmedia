@@ -11801,10 +11801,11 @@ body {
 }
 
 .footer .footer-about .about-title-wrapper .title {
-  font-size: calc(10px + 1vmin);
+  font-size: calc(10px + 2vmin);
   color: var(--color-base-primary);
   text-transform: uppercase;
   margin: 0;
+  font-family: 'Spectral';
 }
 
 .footer .footer-about .footer-about-text-wrapper .text {
@@ -23067,10 +23068,10 @@ body {
 .news-header .title-link .link {
   color: var(--secondary);
   padding: 0 calc(5px + 1vmin);
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   text-decoration: none;
-  font-family: 'Raleway';
+  font-family: "Raleway";
 }
 
 .news-header .title-link .link:hover {
@@ -23084,12 +23085,12 @@ body {
 }
 
 .news-header .slider-sec .barking {
-  padding: calc(3px + .7vmin) calc(10px + 2vmin);
+  padding: calc(3px + 0.7vmin) calc(10px + 2vmin);
   margin-bottom: calc(6px + 1vmin);
   margin-left: calc(6px + 1vmin);
   background: var(--primary);
   text-transform: uppercase;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-size: calc(5px + 1vmin);
   font-weight: 400;
   color: var(--color-base-primary);
@@ -23142,13 +23143,13 @@ body {
 
 .news-header .slider-sec .swiper-slide .post-date {
   color: var(--secondary);
-  font-family: 'Raleway';
+  font-family: "Raleway";
   display: block;
   width: 100%;
   text-transform: capitalize;
   margin-bottom: 0px;
   padding-bottom: 1vmin;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .news-header .slider-sec .swiper-slide a {
@@ -23159,7 +23160,7 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-align: left;
-  font-family: 'Spectral';
+  font-family: "Spectral";
   font-size: calc(10px + 1vmin);
 }
 
@@ -23167,24 +23168,48 @@ body {
   text-decoration: none;
 }
 
-.news-header .news-title-card {
+.news-header .news-title-sec {
   padding: 5vmin 0;
   width: 100%;
 }
 
-.news-header .news-title-card .news-title-c-warper {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(calc(160px + 5vmax), 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(calc(160px + 5vmax), 1fr));
-  grid-gap: 1.5rem;
-  gap: 1.5rem;
+.news-header .news-title-sec .category-swiper-container {
+  overflow: hidden;
 }
 
-.news-header .news-title-card .news-title-c-warper .title-card {
-  background-color: Var(--primary);
-  opacity: .5;
+.news-header .news-title-sec .news-title-c-warper .title-card {
   position: relative;
+  height: calc(100px + 10vmin);
+  overflow: hidden;
+  display: block;
+}
+
+.news-header .news-title-sec .news-title-c-warper .title-card .c-img {
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.9;
+}
+
+.news-header .news-title-sec .news-title-c-warper .title-card .c-title {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  padding: 2vmin;
+  display: block;
+  top: 50%;
+  color: var(--secondary);
+  font-size: calc(10px + 2vmin);
+  font-family: "Raleway";
+  font-weight: 500;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin: 0;
 }
 
 :root {
