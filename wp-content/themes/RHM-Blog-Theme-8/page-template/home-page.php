@@ -154,33 +154,35 @@ foreach($myvals as $key=>$val) {
             </div>
           </div>
 
-          <?php foreach($rhm_frontpage_service_data as $key=>$data) { ?>
+          <?php if(!empty($rhm_frontpage_service_data)) {
+            foreach($rhm_frontpage_service_data as $key=>$data) { ?>
 
-          <div class="work-with-me-card-wrapper">
-            <div class="col-md-5">
-              <div class="image-wrapper">
-                <img src="<?php echo $data['img']; ?>" alt="<?php echo $data['name']; ?>-img">
-              </div>
-            </div>
-            <div class="col-md-7">
-              <div class="text-sec-wrapper">
-                <div class="title-wrapper">
-                  <h2 class="title"><?php echo $data['name']; ?></h2>
-                </div>
-                <div class="text-wrapper"><?php //echo wpautop($data['desc']); ?>
-                  <?php echo substr(wpautop($data['desc']),0,600);
-                  if($total_ltr_count>$ltr_to_show) { echo '...'; }  ?>
-                </div>
-                <div class="btn-wrapper">
-                  <a class="btn btn-primary btn-custom-style " href="<?php echo $data['link']; ?>" role="button">
-                    <?php echo $data['link_text']; ?>
-                  </a>
+            <div class="work-with-me-card-wrapper">
+              <div class="col-md-5">
+                <div class="image-wrapper">
+                  <img src="<?php echo $data['img']; ?>" alt="<?php echo $data['name']; ?>-img">
                 </div>
               </div>
+              <div class="col-md-7">
+                <div class="text-sec-wrapper">
+                  <div class="title-wrapper">
+                    <h2 class="title"><?php echo $data['name']; ?></h2>
+                  </div>
+                  <div class="text-wrapper"><?php //echo wpautop($data['desc']); ?>
+                    <?php echo substr(wpautop($data['desc']),0,600);
+                    if($total_ltr_count>$ltr_to_show) { echo '...'; }  ?>
+                  </div>
+                  <div class="btn-wrapper">
+                    <a class="btn btn-primary btn-custom-style " href="<?php echo $data['link']; ?>" role="button">
+                      <?php echo $data['link_text']; ?>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
 
-        <?php } ?>
+            <?php }
+          } ?>
 
         </div>
     </section>

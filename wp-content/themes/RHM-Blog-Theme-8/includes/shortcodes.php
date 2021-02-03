@@ -108,7 +108,7 @@ function get_popular_posts_func() {
 
 
 
-add_shortcode('get_our_recent_posts', 'get_our_recent_posts_func');
+//add_shortcode('get_our_recent_posts', 'get_our_recent_posts_func');
 function get_our_recent_posts_func() {
   
     $recent_argss = array(
@@ -129,7 +129,7 @@ function get_our_recent_posts_func() {
             <?php foreach($recent_q as $post) { ?>            
                 <li class="asid-li">
                   <span class="left-span">
-                    <?php echo get_the_post_thumbnail($post->ID,'sidebar-thumbnail'); ?>
+                    <?php echo get_the_post_thumbnail($post->ID,'thumbnail'); ?>
                   </span>
                   <a class="asid-link" href="<?php echo get_the_permalink($post->ID); ?>">                        
                       <?php echo $post->post_title; ?>
