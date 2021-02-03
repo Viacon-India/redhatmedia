@@ -16,12 +16,13 @@ if(!function_exists('RHM_custom_theme_setup')) {
 
 		set_post_thumbnail_size( 1200, 9999 );
 
-		add_image_size('single-blog-thumbnail', 400, 300, true );
+		add_image_size('single-blog-thumbnail', 1440, 522, true );
 
-		add_image_size('blog-sidebar-thumbnail', 70, 70, true );
+		add_image_size('blog-sidebar-thumbnail', 80, 80, true );
 		add_image_size('blog-card-thumbnail', 560, 390, true);
-		add_image_size('news-card-thumbnail', 263, 164, true);
+		add_image_size('news-card-thumbnail', 362, 178, true);
 		add_image_size('archive-card-thumbnail', 400, 320, true);
+		add_image_size('single-news-thumbnail', 825, 396, true);
 		
 		
 		$GLOBALS['content_width'] = 900;

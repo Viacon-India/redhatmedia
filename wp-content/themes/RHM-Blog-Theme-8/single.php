@@ -24,19 +24,15 @@ get_header();
 
 
       <section class="blog-banner">
-          <?php echo get_the_post_thumbnail(get_the_ID(),'full',array('class' => 'banner-img'));
+          <?php echo get_the_post_thumbnail(get_the_ID(),'single-blog-thumbnail',array('class' => 'banner-img'));
           ?>       
       </section>
-
 
       <article class="-section">
         <div class="container">
             <div class="row">
                 <div class="col-sm-9">
                     <div class="article">
-
-                    <?php echo get_the_post_thumbnail(get_the_ID(),'single-blog-thumbnail');
-          ?>
 
                         <section class="article-header">
                             <h1 class="article-title"><?php echo get_the_title(); ?></h1>

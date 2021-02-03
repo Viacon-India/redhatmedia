@@ -136,28 +136,27 @@ $categories = get_terms( 'news-cat', array(
         </section>
         <?php } ?>
 
-      <section class="news-title-card">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="news-title-c-warper">
-                <a class="title-card" href="">\
-                  <img src="" alt="">
-                  
-                </a>
-                <a class="title-card" href="">fgbhfgb</a>
-                <a class="title-card" href="">fgbfgb</a>
+        <section class="news-title-card">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="news-title-c-warper">
+                  <a class="title-card" href="">\
+                    <img src="" alt="">
+                    
+                  </a>
+                  <a class="title-card" href="">fgbhfgb</a>
+                  <a class="title-card" href="">fgbfgb</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
         <div class="container">
 
             <!---------------------------- News BLOG ------------------------------->      
-            <div class="row posts-section">
-              
+            <div class="row posts-section">             
                                   
               <?php if ( !empty($google_arr) ) { ?>
                 <section class="news-blog">
