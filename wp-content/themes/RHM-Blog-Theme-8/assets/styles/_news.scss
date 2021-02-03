@@ -31,7 +31,7 @@
   .slider-sec {
     background: var(--color-base-primary);
     width: 100%;
-    padding: calc(10px + 2vmin);
+    padding: calc(10px + 2vmin) 0;
     .barking {
       padding: calc(3px + 0.7vmin) calc(10px + 2vmin);
       margin-bottom: calc(6px + 1vmin);
@@ -65,6 +65,9 @@
       .swiper-button-prev {
         left: -12vmin !important;
         position: absolute;
+        @include mq($until: tablet){
+          left: -5vmin !important;
+        }
         &:after {
           font-size: calc(10px + 2vmin) !important;
           color: var(--secondary);
@@ -74,6 +77,9 @@
       .swiper-button-next {
         right: -12vmin !important;
         position: absolute;
+        @include mq($until: tablet){
+          right: -5vmin !important;
+        }
         &:after {
           font-size: calc(10px + 2vmin) !important;
           color: var(--secondary);

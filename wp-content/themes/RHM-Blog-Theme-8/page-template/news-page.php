@@ -80,7 +80,7 @@ $categories = get_terms('news-cat', array(
 ?>
 
 
-<?php if(!empty($rhm_banner_img)) { ?>
+<?php if (!empty($rhm_banner_img)) { ?>
   <!-- start banner/Header -->
   <header class="header">
     <img src="<?php echo $rhm_banner_img; ?>" alt="service-banner">
@@ -89,13 +89,17 @@ $categories = get_terms('news-cat', array(
         <div class="col-md-8">
           <div class="header-title-warper">
             <h1 class="title">
-              <?php if(!empty($rhm_banner_heading)) { echo $rhm_banner_heading; } ?>
+              <?php if (!empty($rhm_banner_heading)) {
+                echo $rhm_banner_heading;
+              } ?>
             </h1>
           </div>
-          <div class="header-text-warper">            
-          <?php if(!empty($rhm_banner_content)) { echo $rhm_banner_content; } ?>
+          <div class="header-text-warper">
+            <?php if (!empty($rhm_banner_content)) {
+              echo $rhm_banner_content;
+            } ?>
           </div>
-        </div>          
+        </div>
       </div>
     </div>
   </header>
@@ -103,180 +107,181 @@ $categories = get_terms('news-cat', array(
 
 
 
-  <main class="news-temp">
-    <section class="news-header">
-        
+<main class="news-temp">
+  <section class="news-header">
 
-        <?php if (!empty($popular_query)) { ?>
-        <section class="slider-sec">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
+
+    <?php if (!empty($popular_query)) { ?>
+      <section class="slider-sec">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
               <a class="barking">
                 breaking
               </a>
-              </div>
-              <div class="col">
-                <div class="swiper-custom-container">
-                  <div class="swiper-container">
-                    <div class="swiper-wrapper">
+            </div>
+            <div class="col">
+              <div class="swiper-custom-container">
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
 
-                      <?php foreach($popular_query as $post) { ?>
+                    <?php foreach ($popular_query as $post) { ?>
                       <div class="swiper-slide">
-                        <p class="post-date"><?php echo get_the_date( 'F j, Y' ); ?></p>
+                        <p class="post-date"><?php echo get_the_date('F j, Y'); ?></p>
                         <a href="<?php echo get_the_permalink($post->ID); ?>">
                           <?php echo $post->post_title; ?>
                         </a>
                       </div>
-                      <?php } ?>
+                    <?php } ?>
 
-                    </div>
-                    <!-- Add Pagination -->
                   </div>
-                  <div class="swiper-button-next"></div>
-                  <div class="swiper-button-prev"></div>
+                  <!-- Add Pagination -->
                 </div>
-        
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
               </div>
+
             </div>
           </div>
-        </section>
-        <?php } ?>
+        </div>
+      </section>
+    <?php } ?>
 
-        
 
-        <section class="news-title-sec">
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <div class="category-swiper-container">
-                  <div class="news-title-c-warper swiper-wrapper">
 
-                    <?php if ( ! empty( $categories ) ) {
-                      foreach($categories as $cat) {
-                        
-                        if (function_exists('get_wp_term_image')) {
-                          $news_cat_img = get_wp_term_image($cat->term_id);                      
-                            if(empty($news_cat_img)) {
-                                $news_cat_img = get_template_directory_uri().'/assets/images/header-banner.png';
-                            }
-                        }?>
+    <section class="news-title-sec">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="category-swiper-container">
+              <div class="news-title-c-warper swiper-wrapper">
 
-                        <div class="swiper-slide">
-                          <a class="title-card " href="<?php echo get_term_link($cat); ?>">
-                            <h2 class="c-title"><?php echo $cat->name; ?></h2>
-                            <img class="c-img" src="<?php echo $news_cat_img; ?>" alt="<?php echo $cat->name; ?>">
-                          </a>
-                        </div>
-                      <?php }
-                    } ?>
+                <?php if (!empty($categories)) {
+                  foreach ($categories as $cat) {
 
-                  </div>
-                  <div class="swiper-pagination"></div>
-                </div>
-              </div>
-              <!-- test hare -->
-            </div>
-          </div>
-        </section>
-
-        <div class="container">
-
-            <!---------------------------- News BLOG ------------------------------->      
-            <div class="row posts-section">
-              
-                                  
-              <?php if ( !empty($google_arr) ) { ?>
-                <section class="news-blog">
-                  <div class="link-wrapper pl-5 mb-2 mb ">
-                    <h2><a class="link dash"><span>Google</span></a></h2>
-                  </div>
-                  <div class="row">
-                    <?php foreach($google_arr as $post) {
-                      get_template_part( 'template-parts/content', 'news-card1' );
-                    } ?>
-                  </div>
-                </section>
-              <?php } ?>
-                        
-              <?php if ( !empty($digital_arr) ) { ?>
-                <section class="news-blog">
-                  <div class="link-wrapper pl-5 mb-2 mb ">
-                    <h2><a class="link dash"><span>Digital Marketing</span></a></h2>
-                  </div>
-                  <div class="row">
-                    <?php foreach($digital_arr as $post) {
-                        get_template_part( 'template-parts/content', 'news-card1' );
-                      } ?>
-                  </div>
-                </section>
-              <?php } ?>              
-                                  
-              <?php if ( !empty($social_arr) ) { ?>
-                <section class="news-blog">
-                  <div class="link-wrapper pl-5 mb-2 mb ">
-                      <h2><a class="link dash"><span>Social Media</span></a></h2>
-                  </div>
-                  <div class="row">
-                    <?php foreach($social_arr as $post) {
-                      get_template_part( 'template-parts/content', 'news-card1' );
-                    } ?>
-                  </div>
-                </section>
-              <?php } ?>
-
-              <!---------------------------- Recent News -------------------------------> 
-              <section class="recent-news">
-                <div class="link-wrapper pl-5 mb-2 mb ">
-                    <h2><a class="link dash"><span>Recent Posts</span></a></h2>
-                </div>
-                <div class="row">                    
-                  <?php if ( $blog_query->have_posts() ) :  
-
-                    $rc = 1;
-                    while ( $blog_query->have_posts() ) : $blog_query->the_post();
-
-                      if($rc <= $posts_per_page) {
-
-                        get_template_part( 'template-parts/content', 'news-card1' );
-
+                    if (function_exists('get_wp_term_image')) {
+                      $news_cat_img = get_wp_term_image($cat->term_id);
+                      if (empty($news_cat_img)) {
+                        $news_cat_img = get_template_directory_uri() . '/assets/images/header-banner.png';
                       }
-                        
-                    $rc++;
-                    endwhile; ?>
-                    
-                    <div class="main-section">
-                      <div class="container">
-                          <div class="cat-pagi">
-                              <div class="nav-links">
-                                  <?php
-                                  echo paginate_links( array(
-                                      'format'  => 'page/%#%',
-                                      'current' => $paged,
-                                      'total'   => $blog_query->max_num_pages,
-                                      'mid_size'        => 2,
-                                      'prev_text'       => __('<< Previous'),
-                                      'next_text'       => __('Next >>')
-                                  ) ); ?>
-                              </div>
-                          </div>
+                    } ?>
+
+                    <div class="swiper-slide">
+                      <a class="title-card " href="<?php echo get_term_link($cat); ?>">
+                        <h2 class="c-title"><?php echo $cat->name; ?></h2>
+                        <img class="c-img" src="<?php echo $news_cat_img; ?>" alt="<?php echo $cat->name; ?>">
+                      </a>
+                    </div>
+                <?php }
+                } ?>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <!-- test hare -->
+        </div>
+      </div>
+    </section>
+
+    <section class="no-define">
+      <div class="container">
+        <div class="row posts-section">
+
+
+          <?php if (!empty($google_arr)) { ?>
+            <section class="news-blog">
+              <div class="link-wrapper pl-5 mb-2 mb ">
+                <h2><a class="link dash"><span>Google</span></a></h2>
+              </div>
+              <div class="row">
+                <?php foreach ($google_arr as $post) {
+                  get_template_part('template-parts/content', 'news-card1');
+                } ?>
+              </div>
+            </section>
+          <?php } ?>
+
+          <?php if (!empty($digital_arr)) { ?>
+            <section class="news-blog">
+              <div class="link-wrapper pl-5 mb-2 mb ">
+                <h2><a class="link dash"><span>Digital Marketing</span></a></h2>
+              </div>
+              <div class="row">
+                <?php foreach ($digital_arr as $post) {
+                  get_template_part('template-parts/content', 'news-card1');
+                } ?>
+              </div>
+            </section>
+          <?php } ?>
+
+          <?php if (!empty($social_arr)) { ?>
+            <section class="news-blog">
+              <div class="link-wrapper pl-5 mb-2 mb ">
+                <h2><a class="link dash"><span>Social Media</span></a></h2>
+              </div>
+              <div class="row">
+                <?php foreach ($social_arr as $post) {
+                  get_template_part('template-parts/content', 'news-card1');
+                } ?>
+              </div>
+            </section>
+          <?php } ?>
+
+          <!---------------------------- Recent News ------------------------------->
+          <section class="recent-news">
+            <div class="link-wrapper pl-5 mb-2 mb ">
+              <h2><a class="link dash"><span>Recent Posts</span></a></h2>
+            </div>
+            <div class="row">
+              <?php if ($blog_query->have_posts()) :
+
+                $rc = 1;
+                while ($blog_query->have_posts()) : $blog_query->the_post();
+
+                  if ($rc <= $posts_per_page) {
+
+                    get_template_part('template-parts/content', 'news-card1');
+                  }
+
+                  $rc++;
+                endwhile; ?>
+
+                <div class="main-section">
+                  <div class="container">
+                    <div class="cat-pagi">
+                      <div class="nav-links">
+                        <?php
+                        echo paginate_links(array(
+                          'format'  => 'page/%#%',
+                          'current' => $paged,
+                          'total'   => $blog_query->max_num_pages,
+                          'mid_size'        => 2,
+                          'prev_text'       => __('<< Previous'),
+                          'next_text'       => __('Next >>')
+                        )); ?>
                       </div>
                     </div>
+                  </div>
+                </div>
 
-                    <?php else : ?>
-                      <div class="col-md-12 not-found-sec">
-                          <h1 class="page-title"><?php _e( 'Nothing Found', 'rhm' ); ?></h1>
-                          <div><?php _e( 'Sorry, but nothing found.', 'rhm' ); ?></div>
-                      </div>
-                  <?php endif; ?>
-                </div>                
-              </section>
-
-            </div> 
+              <?php else : ?>
+                <div class="col-md-12 not-found-sec">
+                  <h1 class="page-title"><?php _e('Nothing Found', 'rhm'); ?></h1>
+                  <div><?php _e('Sorry, but nothing found.', 'rhm'); ?></div>
+                </div>
+              <?php endif; ?>
+            </div>
+          </section>
 
         </div>
-    </section>      
-  </main>
+      </div>
+
+      <!---------------------------- News BLOG ------------------------------->
+
+    </section>
+  </section>
+</main>
 
 
 
@@ -285,25 +290,26 @@ get_footer(); ?>
 
 <script>
   var swiper = new Swiper('.swiper-container', {
-    direction: getDirection(),
+    slidesPerView: 1,
+    spaceBetween: 20,
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
     breakpoints: {
-          600: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-        }
+      600: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 20,
+      },
+    }
   });
 
   // function getDirection() {
@@ -312,26 +318,27 @@ get_footer(); ?>
 
   //   return direction;
   // }
-  
+
   var swiper = new Swiper('.category-swiper-container', {
-    spaceBetween: 30,
+    slidesPerView: 1,
+    spaceBetween: 20,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
     breakpoints: {
-          600: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 40,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-        }
+      600: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    }
   });
 </script>
