@@ -24,9 +24,8 @@ get_header();
 
 
       <section class="blog-banner">
-          <?php echo get_the_post_thumbnail(get_the_ID(),'singlepage-thumbnail',array('class' => 'banner-img'));
-          ?>
-          <p class="banner-bottom-taitel"><?php //the_title(); ?></p>          
+          <?php echo get_the_post_thumbnail(get_the_ID(),'full',array('class' => 'banner-img'));
+          ?>       
       </section>
 
 
@@ -35,6 +34,9 @@ get_header();
             <div class="row">
                 <div class="col-sm-9">
                     <div class="article">
+
+                    <?php echo get_the_post_thumbnail(get_the_ID(),'single-blog-thumbnail');
+          ?>
 
                         <section class="article-header">
                             <h1 class="article-title"><?php echo get_the_title(); ?></h1>

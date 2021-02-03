@@ -1,6 +1,6 @@
 <?php
-if ( file_exists( CR_DIR.'/includes/framework/framework.php') ) {
-	require_once(CR_DIR.'/includes/framework/framework.php');
+if ( file_exists( RHM_DIR.'/includes/framework/framework.php') ) {
+	require_once(RHM_DIR.'/includes/framework/framework.php');
 }
 
 if ( ! class_exists( 'Redux' ) ) {

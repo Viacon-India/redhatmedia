@@ -272,6 +272,88 @@ $categories = get_terms('news-cat', array(
                         'prev_text'       => __('<< Previous'),
                         'next_text'       => __('Next >>')
                       )); ?>
+            <!---------------------------- News BLOG ------------------------------->      
+            <div class="row posts-section">
+              
+                                  
+              <?php if ( !empty($google_arr) ) { ?>
+                <section class="news-blog">
+                  <div class="link-wrapper pl-5 mb-2 mb ">
+                    <h2><a class="link dash"><span>Google</span></a></h2>
+                  </div>
+                  <div class="row">
+                    <?php foreach($google_arr as $post) {
+                      get_template_part( 'template-parts/content', 'news-card1' );
+                    } ?>
+                  </div>
+                </section>
+              <?php } ?>                  
+              
+
+                                  
+              <?php if ( !empty($digital_arr) ) { ?>
+                <section class="news-blog">
+                  <div class="link-wrapper pl-5 mb-2 mb ">
+                    <h2><a class="link dash"><span>Digital Marketing</span></a></h2>
+                  </div>
+                  <div class="row">
+                    <?php foreach($digital_arr as $post) {
+                        get_template_part( 'template-parts/content', 'news-card1' );
+                      } ?>
+                  </div>
+                </section>
+              <?php } ?>              
+                                  
+              <?php if ( !empty($social_arr) ) { ?>
+                <section class="news-blog">
+                  <div class="link-wrapper pl-5 mb-2 mb ">
+                      <h2><a class="link dash"><span>Social Media</span></a></h2>
+                  </div>
+                  <div class="row">
+                    <?php foreach($social_arr as $post) {
+                      get_template_part( 'template-parts/content', 'news-card1' );
+                    } ?>
+                  </div>
+                </section>
+              <?php } ?>
+
+              <!---------------------------- Recent News -------------------------------> 
+              <section class="recent-news">
+                <div class="link-wrapper pl-5 mb-2 mb ">
+                    <h2><a class="link dash"><span>Recent Posts</span></a></h2>
+                </div>
+                <div class="row">                    
+                  <?php if ( $blog_query->have_posts() ) :  
+
+                    $rc = 1;
+                    while ( $blog_query->have_posts() ) : $blog_query->the_post();
+
+                      if($rc <= $posts_per_page) {
+
+                        get_template_part( 'template-parts/content', 'news-card1' );
+
+                      }
+                        
+                    $rc++;
+                    endwhile; ?>
+                    
+                    <div class="main-section">
+                      <div class="container">
+                          <div class="cat-pagi">
+                              <div class="nav-links">
+                                  <?php
+                                  echo paginate_links( array(
+                                      'format'  => 'page/%#%',
+                                      'current' => $paged,
+                                      'total'   => $blog_query->max_num_pages,
+                                      'mid_size'        => 2,
+                                      'prev_text'       => __('<< Previous'),
+                                      'next_text'       => __('Next >>')
+                                  ) ); ?>
+                              </div>
+                          </div>
+                      </div>
+>>>>>>> 45ef34512bd993e7e26ea6f6247e1f9da8c91729
                     </div>
                   </div>
                 </div>
