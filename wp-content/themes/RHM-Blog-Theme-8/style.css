@@ -19,7 +19,7 @@ header {
     margin-top: -60px;
 }
 
-.archive nav.navbar-dark, .single nav.navbar-dark, .single-news nav.navbar-dark, .tax-news-cat nav.navbar-dark, .search-results nav.navbar-dark{
+.single nav.navbar-dark, .single-news nav.navbar-dark, .search-results nav.navbar-dark{
     background: #840002b3;
     backdrop-filter: blur(4px);
 }
