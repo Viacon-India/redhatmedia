@@ -124,7 +124,7 @@
     padding: 4rem 0 0 0;
     .title {
       color: var(--color-smoke);
-      font-family: "FontAwesome";
+      font-family: "Spectral";
     }
   }
   .header-text-warper {
@@ -136,9 +136,19 @@
   }
   .avtar-sec {
     display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
     img {
       width: 6vmin;
       height: 6vmin;
+      position: relative;
+    }
+    .title {
+      color: var(--color-smoke);
+      font-family: "Spectral";
+      margin: 0 !important;
+      padding-left: 3vmin;
     }
   }
   .header-link-warper {

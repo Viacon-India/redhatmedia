@@ -11278,7 +11278,7 @@ body {
 
 .header .header-title-warper .title {
   color: var(--color-smoke);
-  font-family: "FontAwesome";
+  font-family: "Spectral";
 }
 
 .header .header-text-warper {
@@ -11294,11 +11294,27 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .header .avtar-sec img {
   width: 6vmin;
   height: 6vmin;
+  position: relative;
+}
+
+.header .avtar-sec .title {
+  color: var(--color-smoke);
+  font-family: "Spectral";
+  margin: 0 !important;
+  padding-left: 3vmin;
 }
 
 .header .header-link-warper .link {
