@@ -2,7 +2,7 @@
 /*Template Name: Blog */
 get_header();
 $current_page_ID = get_the_ID();
-$posts_per_page = 3;
+$posts_per_page = 12;
 
 
 $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;

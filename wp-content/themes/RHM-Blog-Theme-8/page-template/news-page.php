@@ -9,12 +9,12 @@ $social_cat_ID = 12;
 
 
 
-$paged = (get_query_var('page')) ? absint(get_query_var('page')) : 1;
+//$paged = (get_query_var('page')) ? absint(get_query_var('page')) : 1;
 $blog_array = array(
   'post_type' => 'news',
   'post_status' => 'publish',
-  'posts_per_page' => 3,
-  'paged' => $paged,
+  'posts_per_page' => 12,
+  //'paged' => $paged,
   'order'     => 'DESC',
   'orderby'   => 'date',
 );
