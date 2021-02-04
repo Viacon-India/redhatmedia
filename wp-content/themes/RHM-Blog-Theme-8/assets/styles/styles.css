@@ -11305,9 +11305,10 @@ body {
 }
 
 .header .avtar-sec img {
-  width: 6vmin;
-  height: 6vmin;
+  width: 40px;
+  height: 40px;
   position: relative;
+  border-radius: 50%;
 }
 
 .header .avtar-sec .title {
@@ -35074,5 +35075,50 @@ header form button i {
 .single .article .author-sec .author-img-container img {
   width: 20vmin;
   border-radius: 10px !important;
+}
+
+.main-section {
+  width: 100%;
+}
+
+.main-section .cat-pagi {
+  margin-top: 42px;
+  width: 100%;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.main-section .cat-pagi .nav-links {
+  margin: 0 auto;
+}
+
+.main-section .cat-pagi .nav-links .page-numbers {
+  background-color: #fff;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 12px;
+  border-radius: 11px 1px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.main-section .cat-pagi .nav-links .page-numbers:hover {
+  background-color: var(--primary);
+  color: #fff !important;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.main-section .cat-pagi .nav-links .current {
+  border: 2px solid var(--primary);
+  border-radius: 13px 1px;
+  padding: 10px;
+  color: #fff;
+  font-size: 20px;
+  background: var(--primary);
+  text-decoration: none;
 }
 /*# sourceMappingURL=styles.css.map */

@@ -2,7 +2,6 @@
 /*Template Name: News Temp */
 get_header();
 $current_page_ID = get_the_ID();
-$posts_per_page = 9;
 
 $google_cat_ID = 11;
 $digital_cat_ID = 10;
@@ -10,11 +9,11 @@ $social_cat_ID = 12;
 
 
 
-$paged = (get_query_var('paged')) ? absint(get_query_var('paged')) : 1;
+$paged = (get_query_var('page')) ? absint(get_query_var('page')) : 1;
 $blog_array = array(
   'post_type' => 'news',
   'post_status' => 'publish',
-  'posts_per_page' => $posts_per_page,
+  'posts_per_page' => 3,
   'paged' => $paged,
   'order'     => 'DESC',
   'orderby'   => 'date',
@@ -29,7 +28,7 @@ foreach ($myvals as $key => $val) {
 $popular_args = array(
   'post_type' => 'news',
   'post_status' => 'publish',
-  'posts_per_page' => 8,
+  'posts_per_page' => 3,
   'order'     => 'DESC',
   'meta_key' => 'post_views_count',
   'orderby'   => 'meta_value_num'
@@ -39,7 +38,7 @@ $popular_query = get_posts($popular_args);
 
 $google_arr = get_posts(
   array(
-    'posts_per_page' => 4, 'post_type' => 'news',
+    'posts_per_page' => 3, 'post_type' => 'news',
     'tax_query' => array(
       array(
         'taxonomy' => 'news-cat',
@@ -51,7 +50,7 @@ $google_arr = get_posts(
 );
 $digital_arr = get_posts(
   array(
-    'posts_per_page' => 4, 'post_type' => 'news',
+    'posts_per_page' => 3, 'post_type' => 'news',
     'tax_query' => array(
       array(
         'taxonomy' => 'news-cat',
@@ -63,7 +62,7 @@ $digital_arr = get_posts(
 );
 $social_arr = get_posts(
   array(
-    'posts_per_page' => 4, 'post_type' => 'news',
+    'posts_per_page' => 3, 'post_type' => 'news',
     'tax_query' => array(
       array(
         'taxonomy' => 'news-cat',
@@ -186,7 +185,7 @@ $categories = get_terms('news-cat', array(
 
     <section class="no-define">
       <div class="container">
-        <div class="row posts-section">
+        <div class="posts-section">
 
 
           <?php if (!empty($google_arr)) { ?>
@@ -228,7 +227,7 @@ $categories = get_terms('news-cat', array(
             </section>
           <?php } ?>
 
-          <!---------------------------- Recent News ------------------------------->
+          <!---------------------------- Recent News ------------------------------->          
           <section class="recent-news">
             <div class="link-wrapper pl-5 mb-2 mb ">
               <h2><a class="link dash"><span>Recent Posts</span></a></h2>
@@ -239,10 +238,10 @@ $categories = get_terms('news-cat', array(
                 $rc = 1;
                 while ($blog_query->have_posts()) : $blog_query->the_post();
 
-                  if ($rc <= $posts_per_page) {
+                  //if ($rc <= $posts_per_page) {
 
                     get_template_part('template-parts/content', 'news-card1');
-                  }
+                  //}
 
                   $rc++;
                 endwhile; ?>
@@ -274,12 +273,6 @@ $categories = get_terms('news-cat', array(
             </div>
           </section>
 
-        </div>
-      </div>
-
-      <!---------------------------- News BLOG ------------------------------->
-
-    </section>
   </section>
 </main>
 

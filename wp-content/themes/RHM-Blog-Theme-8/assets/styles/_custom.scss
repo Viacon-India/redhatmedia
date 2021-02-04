@@ -370,3 +370,39 @@ header {
     
     }
 }
+
+.main-section {
+    width: 100%;
+    .cat-pagi {
+        margin-top: 42px;
+        width: 100%;
+        text-align: center;
+        user-select: none;
+        .nav-links {
+            margin: 0 auto;
+            .page-numbers {
+                background-color: #fff;
+                border: 2px solid var(--primary);
+                color: var(--primary);
+                padding: 12px;
+                border-radius: 11px 1px;
+                font-size: 16px;
+                text-decoration: none;     
+                &:hover {
+                    background-color: var(--primary);
+                    color: #fff !important;
+                    transition: 1s;
+                }
+            }
+            .current {
+                border: 2px solid var(--primary);
+                border-radius: 13px 1px;
+                padding: 10px;
+                color: #fff;
+                font-size: 20px;
+                background: var(--primary);
+                text-decoration: none;
+            }
+        }
+    }
+}
