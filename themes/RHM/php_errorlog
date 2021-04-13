@@ -1,0 +1,16 @@
+[04-Jul-2020 07:31:34 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/idreamag/public_html/mashummollah.com/wp-content/themes/blog/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/idreamag/public_html/mashummollah.com/wp-content/themes/blog/index.php on line 17
+[07-Jul-2020 09:41:49 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/idreamag/public_html/mashummollah.com/wp-content/themes/blog/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/idreamag/public_html/mashummollah.com/wp-content/themes/blog/index.php on line 17
+[08-Jul-2020 07:21:14 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/idreamag/public_html/mashummollah.com/wp-content/themes/blog/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/idreamag/public_html/mashummollah.com/wp-content/themes/blog/index.php on line 17
+[13-Jul-2020 06:45:58 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/idreamag/public_html/mashummollah.com/wp-content/themes/blog/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/idreamag/public_html/mashummollah.com/wp-content/themes/blog/index.php on line 17

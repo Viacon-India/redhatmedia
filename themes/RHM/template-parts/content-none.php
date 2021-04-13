@@ -1,0 +1,1 @@
+<div><?php _e('Nothing found','blog')?></div>

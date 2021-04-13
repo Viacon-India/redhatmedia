@@ -1,0 +1,422 @@
+/*
+Theme Name: RHM
+Author: Viacon
+Description: A realestate theme
+Version: 1.0.0
+Text Domain: blog
+Tags: bootstrap
+*/
+header.light.scrolldown {
+color: white !important;
+}
+header.scrolldown:after {
+    height: 100px;
+}
+/* .scrolldown:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ee394e;
+    z-index: -1;
+    -webkit-transition: height 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    -moz-transition: height 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: height 400ms cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation: animatedBackground 10s linear infinite alternate;
+} */
+a.btn.btn-outline-dark {
+    border: 1px solid #1b2126 !important;
+    background: transparent !important;
+    color: #1b2126 !important;
+    font-size: calc(9px + 1vmin) !important;
+
+}
+
+a.btn.btn-outline-dark:hover {
+    background: #1b2126 !important;
+    color: white !important;
+}
+.btn {
+    font-family: "Poppins" !important;
+    text-transform: uppercase;
+    border-radius: 0 !important;
+}
+section[class*="sec"] {
+    /* padding: 10vmin 0vmin !important; */
+}
+.home-brands .swiper-container {
+    padding: 7vmin 0;
+}
+.swiper-pagination-bullet {
+  background: #1b2126 !important;
+}
+.newsletter-sec {
+    background: rgba(0, 0, 0, 0.5) !important;
+    text-align: center;
+    color: #fff;
+    padding: 15vh 0 !important;
+}
+.newsletter-sec a.btn.card_btn {
+    font-family: "Nunito", "Roboto Slab", "Roboto", "Segoe UI", sans-serif;
+    color: #ffffff;
+    padding: 2vh;
+    font-size: calc(9px + 1vmin);
+    border-radius: 4px;
+    font-weight: 600;
+    display: block;
+    cursor: pointer;
+    border: none;
+    border: 1px solid #fff;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+}
+.newsletter-sec a.btn.card_btn:hover {
+    background-color: #ee394e;
+    color: #fff;
+    border: 1px solid #ee394e;        
+}
+/****** Home Banner ********/
+.home-banner {
+    height: 92vh;
+     background: rgb(0 0 0 / 48%);
+    display: grid;
+    place-content: center;
+
+}
+h2.sec-title {
+    font-size: calc(10px + 6vmin) !important;
+    text-align: left;
+}
+.home-brands .sec-title {
+    margin-bottom: 30px;
+}
+.home-brands div.swiper-slide {
+    max-width: 40vw;
+    max-height: 40vw;
+    margin-bottom: calc(20px + 3vmin);
+}
+.home-brands .ifrem-warapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.home-brands .ifrem-warapper .ifrem-card {
+    background: #f3f3f3;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 3px solid #ee394e12;
+    overflow: hidden;
+}
+.home-brands .ifrem-warapper .ifrem-card img {
+    /* height: 58vh;
+    width: auto; */
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: contain;
+    border: none;
+}
+.home-brands .title {
+    text-align: center;
+    transition: 0.3s;    
+    border-top: 1px solid #cccccc6b;
+    padding: 8px 0;
+}
+.home-brands .title a {
+	font-size: 1.1rem;
+	font-weight: 900;
+}
+.home-brands .title a:hover {
+    color: #1b2126;
+}
+.home-banner video {
+	  position: fixed;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: 100% 100%;
+    /*height: inherit;*/
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+.home-banner .banner-content {
+	padding: 25vh 0;
+}
+.home-banner .banner-content h1 {
+    font-size: 48px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+}
+.home-banner .mt-inner {
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    font-family: 'Poppins';
+    font-size: calc(30px + 4vmin);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    padding: 10vh calc(30px + 10vmin);
+    /* background: rgb(0 0 0 / 31%); */
+    background: rgb(236 229 229 / 16%);
+}
+
+/********* Dumy tab **********/
+#myTabJust .nav-link {
+    border-top: 7px solid #1b2126 !important;
+    border-bottom: 7px solid #eaeaea;
+}
+#myTabJust .nav-tabs .nav-item {
+    margin: 0 5px;
+}
+#myTabJust .nav-tabs {
+	border-bottom: none !important;
+}
+#myTabJust .nav-link.active {
+    background: #1b2126;
+    color: #fff;
+    border-bottom: 7px solid #ee394e !important;
+}
+
+/********* NEW **********/
+
+#myTabJust .nav-link.active {
+    background: #1b2126;
+    color: #fff;
+}
+#myTabJust .nav-link {
+    background: #d8d8d878;
+    /* border: 1px solid #c7c7c7; */
+}
+
+
+
+
+
+/************************/
+
+
+.single-post-subscribe form {
+  max-width: none !important;
+}
+.single-post-subscribe .formkit-subheader p {
+  color: #fff !important;
+}
+.single-post-subscribe input,
+.single-post-subscribe button {
+  box-shadow: 0 4px 15px 8px #283996;
+}
+
+.single-post-subscribe .formkit-background {
+  opacity: 1 !important;
+  background-image: url(https://mashummollah.com/wp-content/themes/blog/images/single-post-subscribe3.svg);
+}
+
+section.resorce {
+  box-shadow: 0 5px 29px -4px rgba(0, 0, 0, 0.25);
+  padding: 25px !important;
+  background: #fff;
+  margin-bottom: 20px !important;
+}
+
+#menu-main {
+  display: inline-flex;
+  /* width: auto !important; */
+}
+.my-search {
+  color: white;
+  margin-left: auto;
+}
+
+.about ul li.instagram {
+  background: #e1306c;
+}
+
+ul.header-social-links {
+  margin-left: 36px !important;
+}
+
+
+.social-icon a {
+  color: #fff;
+  list-style: none;
+  font-size: 12px;
+  /* text-transform: uppercase; */
+}
+.social-icon a img {
+  height: 15px;
+}
+.subscription-popup {
+  background: #2b2ba5;
+  color: #fff;
+  border-radius: 3px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+#layout .disqus-footer__wrapper,
+#layout .disqus-footer {
+  display: none !important;
+}
+
+#footer {
+  display: none;
+}
+ul#menu-main li a {
+  color: #fff;
+  margin-left: 28px;
+}
+.single img {
+  width: 100%;
+  height: auto;
+}
+ul#menu-main {
+  width: 100%;
+}
+ul.header-social-links i {
+  color: #fff;
+  margin-left: 15px;
+}
+.blog-img img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+}
+.container.logo-sec img {
+  width: 200px;
+  height: 100%;
+}
+.container.logo-sec a {
+  width: 250px;
+  height: 100%;
+}
+.content .col-md-4 .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#top-nav .navbar-toggler:not(:disabled):not(.disabled) {
+  outline: none;
+}
+/*********/
+
+
+.archive .content-title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.archive .content-title:before {
+    left: 0;
+}
+.archive .content-title:after, .archive .content-title:before {
+    content: "";
+    position: absolute;
+    top: 11px;
+    width: 30%;
+    height: 1px;
+    background-color: rgba(0,0,0,.2);
+}
+.archive .content-title:after {
+    right: 0;
+}
+.archive .content-title {
+    color: #1b2126;
+}
+.archive header.page-header img {
+    border-radius: 50%;
+}
+.archive .page-header { text-align: center; }
+
+
+.sidebar section li img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    float: left;
+    margin-right: 10px;
+}
+
+
+.banner ul li .emaillist label, .banner ul li .emaillist input {
+  width: 100% !important;
+      border-radius: 8px;
+}
+/****************************************************************/
+li.subscribe-btn a {
+    background: #ee394e;
+    color: #fff;
+    padding: 10px 20px !important;
+    margin-left: 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+li.subscribe-btn:hover a {
+  background: #d64d4e;
+}
+ul.header-social-links i {
+    color: #fff;
+    margin-left: 15px;
+    font-size: 18px;
+    transition: 0.3s;    
+}
+.header-social-links li a:hover i {
+  color: #ee394e;
+  transform: scale(1.1);	
+  /*border: 1px solid #1b2126;
+  padding: 2px 10px;
+  background: #ffffff;
+  color: #ee394e;
+  border-radius: 5px;*/
+}
+
+
+#wpd-bubble-wrapper > #wpd-bubble #wpd-bubble-add-message {
+    background-color: #ef6667 !important;
+}
+#wpd-bubble-wrapper > div {
+    background-color: #ee394e !important;
+}
+.content-float img {
+    width: 26% !important;
+}
+
+/******************** SINGLE ************/
+
+@media screen and (max-width: 480px) {
+	.content-float img {
+    	width: 100%;
+    }
+}
+
+body.single-post blockquote {
+    font-size: calc(1rem + 1.5vmin) !important;
+    color: darkgray;
+}
+
+body.single-post blockquote::after {
+    width: 100%;
+    text-align: right;
+    display: inline-block;
+    transform: translateY(-10px);
+}
+
+body.single-post blockquote > * {
+    font-size: inherit !important;
+    line-height: 1.5 !important;
+    font-weight: 600;
+    padding-left: 1rem;
+}
