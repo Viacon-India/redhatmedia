@@ -65,7 +65,7 @@ function abn_common_banner_meta() {
 /*********************** /////////////// NEWS //////////////// ***************************/
 
 /********** News post type and category ***********/
-function abn_news() {
+/* function abn_news() {
 	$labels = array(
 	  'name'               => _x( 'News', 'post type general name' ),
 	  'singular_name'      => _x( 'News', 'post type singular name' ),
@@ -118,4 +118,4 @@ function abn_news_cat()
 	  ));
   
 }
-add_action( 'init', 'abn_news_cat', 0 );
+add_action( 'init', 'abn_news_cat', 0 ); */
