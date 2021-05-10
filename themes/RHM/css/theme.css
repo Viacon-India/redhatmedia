@@ -1,0 +1,97 @@
+.blog-pagi .nav-links {
+  text-align: center;
+}
+.page-numbers.current {
+    background: #ee394e;
+    padding: 5px;
+    color: #fff;
+    border: 1px solid #ee394e;
+    border-radius: 6px;
+}
+.blog-pagi a.page-numbers {
+  padding: 5px;
+  border: 1px solid #1b2126;
+  border-radius: 6px;
+}
+
+._form_36 input[type="text"] {
+  width: 70%;
+  padding: 12px;
+  float: left;
+  height: 54px;
+}
+ul.footer-subscribe input {
+  background: transparent;
+}
+.popular-author-post img.img-fluid {
+  width: 95px;
+  height: auto;
+  margin: 0px 15px 15px 0;
+}
+.single-post blockquote {
+  background: #cccccc3d;
+  padding: 20px;
+  font-style: italic;
+}
+div#respond input {
+  width: 100%;
+  height: 42px;
+  padding: 8px;
+  background: #cccccc42;
+  border-radius: 5px;
+  border: none;
+}
+
+div#respond {
+  width: 70%;
+  margin: 0 auto;
+}
+div#respond textarea  { width: 100%;
+  height: 116px;
+  padding: 8px;
+  background: #cccccc42;
+  border-radius: 5px;
+  border: none;
+}
+div#respond input#submit {
+    background: #1b2126;
+    color: #fff;
+    border: none;
+    width: 25%;
+    float: right;
+    transition: background-color 0.3s;
+}
+div#respond input#submit:hover {
+  background: #ee394e;
+}
+div#respond .comment-form-cookies-consent, .comment-form-url { display: none; }
+#menu-header-menu a:hover {
+  /* transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  border-bottom: 1px solid #fff; */
+}
+
+
+.single.single-post { margin-top: 0; }
+.single-post .comment article footer .comment-author img {
+  height: auto;
+  width: 50px;
+  margin-top: 37px;
+}
+.blog-pagi { margin: 0 auto; }
+.container-fluid.header-gap { padding: 45px 125px; }
+input.form-control.search-field:focus { width: 160% !important; }
+h2.screen-reader-text { display: none; }
+
+/***************** comment **********/
+.comment-notes { display: none; }
+p.comment-form-author { margin-right: 10px; }
+p.comment-form-email { margin-left: 10px; }
+.comment-author.vcard, .comment-metadata { width: 100%; }
+.commentlist article { border: 1px solid #ccc; padding: 5px;
+  margin-top: 24px; padding: 15px; border-radius: 5px; }
+a.comment-reply-link { float: right; margin-top: -145px; }
+.commentlist li { list-style: none; }
+.reply a.comment-reply-link { background: #1b2126; border-radius: 5px;
+  color: #fff; padding: 5px; width: 6%; text-align: center; }
+h3#reply-title { font-size: 18px; border-bottom: 1px solid #000;
+  width: 40%; margin-bottom: 20px; }
